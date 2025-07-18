@@ -1,13 +1,10 @@
 from fastapi import FastAPI
-from database import get_db
-from controllers import router
+from controllers import router as math_router
 
-app = FastAPI()
+app = FastAPI(title="Math Microservice API", version="1.0.0")
 
-@app.on_event("startup")
-async def startup_event():
-    await get_db()
+app.include_router(math_router, prefix="/api/math", tags=["math operations"])
 
 @app.get("/")
-async def read_root():
-    return {"message": "Hello, World!"}
+def root():
+    return {"message": "Welcome to the Math Microservice API"}

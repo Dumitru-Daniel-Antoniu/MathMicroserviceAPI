@@ -1,15 +1,19 @@
 import math
+from functools import lru_cache
 
+@lru_cache(maxsize=128)
 def power(base: float, exponent: float) -> float:
     """Calculate the power of a number."""
     return math.pow(base, exponent)
 
-def square_root(value: float) -> float:
+@lru_cache(maxsize=128)
+def sqrt(value: float) -> float:
     """Calculate the square root of a number."""
     if value < 0:
         raise ValueError("Cannot compute square root of negative number")
     return math.sqrt(value)
 
+@lru_cache(maxsize=128)
 def logarithm(value: float, base: float = 10) -> float:
     """Calculate the logarithm of a number with a specified base."""
     if value <= 0:
@@ -18,10 +22,12 @@ def logarithm(value: float, base: float = 10) -> float:
         raise ValueError("Base must be greater than 1")
     return math.log(value, base)
 
+@lru_cache(maxsize=128)
 def factorial(value: int) -> int:
     """Calculate the factorial of a non-negative integer."""
     return math.factorial(value)
 
+@lru_cache(maxsize=128)
 def fibonacci(n: int) -> int:
     """Calculate the nth Fibonacci number."""
     if n <= 1:

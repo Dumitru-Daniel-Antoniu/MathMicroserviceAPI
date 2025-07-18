@@ -1,44 +1,51 @@
-from fastapi import APIRouter, HTTPException, Depends
-from sqlalchemy.ext.asyncio import AsyncSession
-from schemas import OperationRequest, OperationResponse
-from database import SessionLocal
-from models import OperationLog
-from math_services import *
+from fastapi import APIRouter, BackgroundTasks
+from schemas import PowRequest, FibonacciRequest, FactorialRequest, SqrtRequest, LogRequest, MathResponse
+from math_services import power, fibonacci, factorial, sqrt, logarithm
+from database import log_request
 
-router = APIRouter(prefix='/api')
+router = APIRouter()
 
-async def get_db():
-    async with SessionLocal() as session:
-        yield session
+@router.post("/pow", response_model=MathResponse)
+async def calculate_pow(request: PowRequest, background_tasks: BackgroundTasks):
+    # controller logic: calls service and orchestrates logging
+    result = power(request.base, request.exponent)
+    background_tasks.add_task(log_request, "pow", request.dict(), result)
 
-@router.post("/operation_log", response_model=OperationResponse)
-async def math_operation_log(
-    operation_log: OperationRequest,
-    db: AsyncSession = Depends(get_db)
-):
-    if operation_log == "pow":
-        result = power(operation_log.a, operation_log.b)
-    elif operation_log.operation == "sqrt":
-        result = square_root(operation_log.a)
-    elif operation_log.operation == "log":
-        if operation_log.b is None:
-            result = logarithm(operation_log.a)
-        else:
-            result = logarithm(operation_log.a, operation_log.b)
-    elif operation_log.operation == "factorial":
-        result = factorial(operation_log.a)
-    elif operation_log.operation == "fibonacci":
-        result = fibonacci(operation_log.a)
-    else:
-        raise HTTPException(status_code=400, detail="Invalid/unsupported operation")
-    
-    log_entry = OperationLog(
-        operation=operation_log.operation,
-        input=f"{operation_log.a}, {operation_log.b}" if operation_log.b is not None else f"{operation_log.a}",
-        result=result
-    )
-    db.add(log_entry)
-    await db.commit()
-    await db.refresh(log_entry)
-    
-    return {'result': result, 'message': 'Operation successful'}
+    # view logic: formats response
+    return MathResponse(operation="pow", input=request.dict(), result=result)
+
+@router.post("/sqrt", response_model=MathResponse)
+async def calculate_sqrt(request: SqrtRequest, background_tasks: BackgroundTasks):
+    # controller logic: calls service and orchestrates logging
+    result = sqrt(request.input)
+    background_tasks.add_task(log_request, "sqrt", request.dict(), result)
+
+    # view logic: formats response
+    return MathResponse(operation="sqrt", input=request.dict(), result=result)
+
+@router.post("/log", response_model=MathResponse)
+async def calculate_log(request: LogRequest, background_tasks: BackgroundTasks):
+    # controller logic: calls service and orchestrates logging
+    result = logarithm(request.input, request.base)
+    background_tasks.add_task(log_request, "log", request.dict(), result)
+
+    # view logic: formats response
+    return MathResponse(operation="log", input=request.dict(), result=result)
+
+@router.post("/fibonacci", response_model=MathResponse)
+async def calculate_fibonacci(request: FibonacciRequest, background_tasks: BackgroundTasks):
+    # controller logic: calls service and orchestrates logging
+    result = fibonacci(request.n)
+    background_tasks.add_task(log_request, "fibonacci", request.dict(), result)
+
+    # view logic: formats response
+    return MathResponse(operation="fibonacci", input=request.dict(), result=result)
+
+@router.post("/factorial", response_model=MathResponse)
+async def calculate_factorial(request: FactorialRequest, background_tasks: BackgroundTasks):
+    # controller logic: calls service and orchestrates logging
+    result = factorial(request.n)
+    background_tasks.add_task(log_request, "factorial", request.dict(), result)
+
+    # view logic: formats response
+    return MathResponse(operation="factorial", input=request.dict(), result=result)
