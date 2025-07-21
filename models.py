@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, DateTime, Float
 from sqlalchemy.ext.declarative import declarative_base
-from datetime import datetime
+from datetime import datetime, timezone
 
 Base = declarative_base()
 
@@ -12,8 +12,8 @@ class OperationLog(Base):
     operation = Column(String, index=True)
     input = Column(String, index=True)
     result = Column(Float, index=True)
-    timestamp = Column(DateTime, default=datetime.utcnow)
+    timestamp = Column(DateTime(timezone=True), default=datetime.now(timezone.utc))
 
     def __repr__(self):
-        return f"<OperationLog(id={self.id}, operation='{self.operation}', timestamp='{self.timestamp}')>"
+        return f"<OperationLog(id={self.id}, operation='{self.operation}', input='{self.input}', result={self.result}, timestamp='{self.timestamp}')>"
     
