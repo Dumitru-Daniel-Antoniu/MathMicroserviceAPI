@@ -21,9 +21,3 @@ class FibonacciRequest(BaseModel):
 class FactorialRequest(BaseModel):
     """Request schema for factorial operation."""
     n: int = Field(..., description="Number to calculate factorial for")
-
-class MathResponse(BaseModel):
-    """Response schema for mathematical operations."""
-    operation: str = Field(..., description="Operation performed")
-    input: dict = Field(..., description="Input values")
-    result: float = Field(..., description="Result of the operation")
