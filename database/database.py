@@ -5,12 +5,16 @@ from models.models import Base, OperationLog
 DATABASE_URL = "sqlite+aiosqlite:///./test.db"
 
 engine = create_async_engine(DATABASE_URL, echo=True)
-SessionLocal: sessionmaker[AsyncSession] = sessionmaker(bind=engine, class_=AsyncSession, expire_on_commit=False)
+SessionLocal: sessionmaker[AsyncSession] = sessionmaker(bind=engine,
+                                                        class_=AsyncSession,
+                                                        expire_on_commit=False)
+
 
 # Initiates database connection
 async def get_db():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+
 
 # Function to log requests
 async def log_request(operation: str, input_data: dict, result: float):

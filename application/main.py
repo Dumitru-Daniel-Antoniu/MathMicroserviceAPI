@@ -11,13 +11,17 @@ async def lifespan(app: FastAPI):
     await get_db()
     yield
 
-app = FastAPI(title="Math Microservice API", version="1.0.0", lifespan=lifespan)
+app = FastAPI(title="Math Microservice API",
+              version="1.0.0",
+              lifespan=lifespan)
 
 app.include_router(math_router)
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
+
 templates = Jinja2Templates(directory="templates")
+
 
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):

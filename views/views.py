@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field
 
+
 class OperationView(BaseModel):
     """View for mathematical operations."""
     operation: str = Field(..., description="Operation performed")
