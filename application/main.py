@@ -6,6 +6,7 @@ from contextlib import asynccontextmanager
 from controllers.controllers import router as math_router
 from database.database import get_db
 
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     await get_db()

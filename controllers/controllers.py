@@ -1,6 +1,7 @@
 from fastapi import APIRouter, BackgroundTasks, HTTPException
 from views.views import OperationView
-from schemas.schemas import PowRequest, FibonacciRequest, FactorialRequest, SqrtRequest, LogRequest
+from schemas.schemas import PowRequest, FibonacciRequest, \
+                            FactorialRequest, SqrtRequest, LogRequest
 from services.math_services import power, fibonacci, factorial, sqrt, logarithm
 from database.database import log_request
 
