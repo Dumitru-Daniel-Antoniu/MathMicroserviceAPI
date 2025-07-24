@@ -5,11 +5,13 @@ from fastapi.templating import Jinja2Templates
 from contextlib import asynccontextmanager
 from controllers.controllers import router as math_router
 from database.database import get_db
+from services.cache import init_cache
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     await get_db()
+    await init_cache()
     yield
 
 app = FastAPI(title="Math Microservice API",

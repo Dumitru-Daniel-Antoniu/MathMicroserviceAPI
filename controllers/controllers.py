@@ -4,11 +4,13 @@ from schemas.schemas import PowRequest, FibonacciRequest, \
                             FactorialRequest, SqrtRequest, LogRequest
 from services.math_services import power, fibonacci, factorial, sqrt, logarithm
 from database.database import log_request
+from fastapi_cache.decorator import cache
 
 router = APIRouter()
 
 
 @router.post("/pow", response_model=OperationView)
+@cache(expire=60)
 async def calculate_pow(
     request: PowRequest,
     background_tasks: BackgroundTasks
@@ -31,6 +33,7 @@ async def calculate_pow(
 
 
 @router.post("/sqrt", response_model=OperationView)
+@cache(expire=60)
 async def calculate_sqrt(request: SqrtRequest,
                          background_tasks: BackgroundTasks):
     try:
@@ -51,6 +54,7 @@ async def calculate_sqrt(request: SqrtRequest,
 
 
 @router.post("/log", response_model=OperationView)
+@cache(expire=60)
 async def calculate_log(request: LogRequest,
                         background_tasks: BackgroundTasks):
     try:
@@ -71,6 +75,7 @@ async def calculate_log(request: LogRequest,
 
 
 @router.post("/fibonacci", response_model=OperationView)
+@cache(expire=60)
 async def calculate_fibonacci(request: FibonacciRequest,
                               background_tasks: BackgroundTasks):
     try:
@@ -91,6 +96,7 @@ async def calculate_fibonacci(request: FibonacciRequest,
 
 
 @router.post("/factorial", response_model=OperationView)
+@cache(expire=60)
 async def calculate_factorial(request: FactorialRequest,
                               background_tasks: BackgroundTasks):
     try:
