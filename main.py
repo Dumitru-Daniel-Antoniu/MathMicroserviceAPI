@@ -2,11 +2,11 @@ from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
+from prometheus_fastapi_instrumentator import Instrumentator
 from contextlib import asynccontextmanager
 from controllers.controllers import router as math_router
 from database.database import get_db
 from services.cache import init_cache
-
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -14,9 +14,19 @@ async def lifespan(app: FastAPI):
     await init_cache()
     yield
 
-app = FastAPI(title="Math Microservice API",
-              version="1.0.0",
-              lifespan=lifespan)
+def create_app() -> FastAPI:
+    app = FastAPI()
+
+    Instrumentator().instrument(app).expose(app, endpoint="/metrics")
+
+    app = FastAPI(
+        lifespan=lifespan,
+        routes=app.routes
+    )
+
+    return app
+
+app = create_app()
 
 app.include_router(math_router)
 

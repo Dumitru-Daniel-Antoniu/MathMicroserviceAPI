@@ -5,7 +5,7 @@ import redis.asyncio as redis
 
 async def init_cache():
     redis_client = redis.Redis(
-        host="localhost",
+        host="redis",
         port=6379,
         decode_responses=True
     )
