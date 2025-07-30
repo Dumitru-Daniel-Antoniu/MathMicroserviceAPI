@@ -15,13 +15,8 @@ async def lifespan(app: FastAPI):
     yield
 
 def create_app() -> FastAPI:
-    app = FastAPI()
-
-    Instrumentator().instrument(app).expose(app, endpoint="/metrics")
-
     app = FastAPI(
-        lifespan=lifespan,
-        routes=app.routes
+        lifespan=lifespan
     )
 
     return app
@@ -39,3 +34,5 @@ templates = Jinja2Templates(directory="templates")
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
+
+Instrumentator().instrument(app).expose(app, endpoint="/metrics")

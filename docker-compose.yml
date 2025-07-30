@@ -35,7 +35,14 @@ services:
     depends_on:
       - prometheus
     volumes:
-      - grafana-storage:/var/lib/grafana
+      - ./grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./grafana/dashboard_provisioning.yml:/etc/grafana/provisioning/dashboards/dashboard.yml
+      - grafana-data:/var/lib/grafana
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
 
 volumes:
-  grafana-storage:
+  grafana-data:
