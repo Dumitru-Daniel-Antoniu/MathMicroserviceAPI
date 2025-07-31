@@ -110,10 +110,10 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "cache_misses_total",
+          "expr": "rate(cache_misses_total[1m])",
           "fullMetaSearch": false,
           "includeNullMetadata": false,
-          "legendFormat": "__auto",
+          "legendFormat": "{{method}} {{endpoint}}",
           "range": true,
           "refId": "A",
           "useBackend": false
@@ -137,5 +137,5 @@
   "timezone": "browser",
   "title": "Cache misses total",
   "uid": "f1b123db-d23c-45b3-90fe-de9395cbd517",
-  "version": 1
+  "version": 4
 }

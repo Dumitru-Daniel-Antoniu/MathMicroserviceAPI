@@ -32,36 +32,17 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 0,
+            "fillOpacity": 80,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
             },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
             "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
             "stacking": {
               "group": "A",
               "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
             }
           },
           "mappings": [],
@@ -110,51 +91,19 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "rate(http_request_duration_seconds_count[1h])",
+          "expr": "histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[1m]))",
           "fullMetaSearch": false,
+          "hide": false,
           "includeNullMetadata": false,
-          "legendFormat": "__auto",
+          "instant": false,
+          "legendFormat": "{{method}} {{handler}}",
           "range": true,
           "refId": "A",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "beti19httd91ce"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "histogram_quantile(0.95, sum by(le) (rate(http_request_duration_seconds_bucket[1h])))",
-          "fullMetaSearch": false,
-          "hide": false,
-          "includeNullMetadata": false,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "B",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "beti19httd91ce"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "rate(http_request_duration_seconds_sum[1h])",
-          "fullMetaSearch": false,
-          "hide": false,
-          "includeNullMetadata": false,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "C",
           "useBackend": false
         }
       ],
       "title": "New panel",
-      "type": "timeseries"
+      "type": "histogram"
     }
   ],
   "preload": false,
@@ -171,5 +120,5 @@
   "timezone": "browser",
   "title": "Http request duration seconds",
   "uid": "c8a18fb3-e2e4-446c-b663-b8620ee31466",
-  "version": 1
+  "version": 5
 }

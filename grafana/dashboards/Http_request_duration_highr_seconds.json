@@ -110,46 +110,14 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "rate(http_request_duration_highr_seconds_count[1h])",
+          "expr": "histogram_quantile(0.9, rate(http_request_duration_highr_seconds_bucket[1m]))",
           "fullMetaSearch": false,
+          "hide": false,
           "includeNullMetadata": false,
-          "legendFormat": "__auto",
+          "instant": false,
+          "legendFormat": "bucket",
           "range": true,
           "refId": "A",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "beti19httd91ce"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "histogram_quantile(0.95, sum by(le) (rate(http_request_duration_highr_seconds_bucket[1h])))",
-          "fullMetaSearch": false,
-          "hide": false,
-          "includeNullMetadata": false,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "B",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "beti19httd91ce"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "rate(http_request_duration_highr_seconds_sum[1h])",
-          "fullMetaSearch": false,
-          "hide": false,
-          "includeNullMetadata": false,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "C",
           "useBackend": false
         }
       ],
@@ -171,5 +139,5 @@
   "timezone": "browser",
   "title": "Http request duration highr seconds",
   "uid": "d995f02e-18b3-454b-89d5-b1f863d374d9",
-  "version": 1
+  "version": 3
 }

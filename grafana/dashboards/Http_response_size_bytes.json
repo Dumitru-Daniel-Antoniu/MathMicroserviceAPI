@@ -110,29 +110,12 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "rate(http_response_size_bytes_count[1h])",
+          "expr": "rate(http_response_size_bytes_sum[1m]) / (rate(http_response_size_bytes_count[1m]))",
           "fullMetaSearch": false,
           "includeNullMetadata": false,
-          "legendFormat": "__auto",
+          "legendFormat": "{{handler}}",
           "range": true,
           "refId": "A",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "beti19httd91ce"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "rate(http_response_size_bytes_sum[1h])",
-          "fullMetaSearch": false,
-          "hide": false,
-          "includeNullMetadata": false,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "B",
           "useBackend": false
         }
       ],
@@ -154,5 +137,5 @@
   "timezone": "browser",
   "title": "Http response size bytes",
   "uid": "7ad572e4-e845-449e-9d9c-817e888b7595",
-  "version": 1
+  "version": 2
 }

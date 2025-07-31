@@ -79,7 +79,32 @@
             ]
           }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "{__name__=\"cache_hits_total\", endpoint=\"/pow?base=4&exponent=5\", instance=\"web:8000\", job=\"fastapi\"}"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 8,
@@ -110,10 +135,11 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "cache_hits_total",
+          "expr": "rate(cache_hits_total[1m])",
           "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "legendFormat": "__auto",
+          "includeNullMetadata": false,
+          "interval": "",
+          "legendFormat": "{{method}} {{endpoint}}",
           "range": true,
           "refId": "A",
           "useBackend": false
@@ -137,5 +163,5 @@
   "timezone": "browser",
   "title": "Cache hits total",
   "uid": "6fccc10e-eb7b-4d39-992f-b3c1218c4ae5",
-  "version": 1
+  "version": 3
 }

@@ -3,8 +3,8 @@ from services.cache import redis_client
 from database.database import log_request
 from views.views import OperationView
 
-cache_hits = Counter("cache_hits_total", "Cache hits per endpoint", ["endpoint"])
-cache_misses = Counter("cache_misses_total", "Cache misses per endpoint", ["endpoint"])
+cache_hits = Counter("cache_hits_total", "Cache hits per endpoint", ["method", "endpoint"])
+cache_misses = Counter("cache_misses_total", "Cache misses per endpoint", ["method", "endpoint"])
 
 async def handle_cached_operation(
     operation: str,
@@ -18,7 +18,10 @@ async def handle_cached_operation(
 ):
     is_cached = await redis_client.exists(key)
     if is_cached:
-        cache_hits.labels(endpoint=endpoint).inc()
+        cache_hits.labels(
+            method="POST",
+            endpoint=endpoint
+        ).inc()
         cached = await redis_client.get(key)
         return OperationView(
             operation=operation,
@@ -26,7 +29,10 @@ async def handle_cached_operation(
             result=result_type(cached)
         )
     else:
-        cache_misses.labels(endpoint=endpoint).inc()
+        cache_misses.labels(
+            method="POST",
+            endpoint=endpoint
+        ).inc()
         result = calc_func()
         await redis_client.set(key, result, ex=expire)
 

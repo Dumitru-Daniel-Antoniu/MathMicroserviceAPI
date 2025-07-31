@@ -110,10 +110,10 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "rate(http_requests_total[1h])",
+          "expr": "rate(http_requests_total[1m])",
           "fullMetaSearch": false,
           "includeNullMetadata": false,
-          "legendFormat": "__auto",
+          "legendFormat": "{{method}} {{handler}} - {{status}}",
           "range": true,
           "refId": "A",
           "useBackend": false
@@ -137,5 +137,5 @@
   "timezone": "browser",
   "title": "Http requests total",
   "uid": "8ab65fa9-10bd-4cb8-b884-67c5dd6e761a",
-  "version": 1
+  "version": 6
 }

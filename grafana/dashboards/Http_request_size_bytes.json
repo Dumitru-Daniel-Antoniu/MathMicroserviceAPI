@@ -110,29 +110,14 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "rate(http_request_size_bytes_count[1h])",
-          "fullMetaSearch": false,
-          "includeNullMetadata": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "beti19httd91ce"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "rate(http_request_size_bytes_sum[1h])",
+          "expr": "rate(http_request_size_bytes_sum[1m]) / (rate(http_request_size_bytes_count[1m]))",
           "fullMetaSearch": false,
           "hide": false,
           "includeNullMetadata": false,
           "instant": false,
-          "legendFormat": "__auto",
+          "legendFormat": "{{handler}}",
           "range": true,
-          "refId": "B",
+          "refId": "A",
           "useBackend": false
         }
       ],
@@ -154,5 +139,5 @@
   "timezone": "browser",
   "title": "Http request size bytes",
   "uid": "8945855c-1b02-4561-b72f-525b0f6a951c",
-  "version": 1
+  "version": 2
 }
