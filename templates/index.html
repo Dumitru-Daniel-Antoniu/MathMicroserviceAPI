@@ -6,6 +6,10 @@
         <link rel="stylesheet" href="/static/style.css">
     </head>
     <body>
+        <div id="user-info" style="text-align: right; padding: 10px;">
+          Logged in as: <span id="username"></span>
+          <button onclick="logout()">Logout</button>
+        </div>
         <div class="container">
             <input id="input1" type="text" placeholder="First number" class="input-box">
             <input id="input2" type="text" placeholder="Second number" class="input-box">
@@ -127,6 +131,33 @@
               console.log(!isNaN(parsed));
               return Number.isInteger(parsed) && !isNaN(parsed);
             }
+
+            async function getUserInfo() {
+              try {
+                  const res = await fetch("/userinfo", {
+                    method: "GET",
+                    credentials: "include"
+                  });  // Backend should return user data
+                  if (res.ok) {
+                      const data = await res.json();
+                      document.getElementById("username").innerText = data.username;
+                  } else {
+                      window.location.href = "/";  // Redirect to login if not authorized
+                  }
+              } catch (err) {
+                  console.error("User info fetch failed", err);
+                  window.location.href = "/";
+              }
+            }
+
+            function logout() {
+                // Clear the cookie manually
+                document.cookie = "access_token=; path=/; Max-Age=0;";
+                window.location.href = "/logout";  // Or simply reload to login screen
+            }
+
+            // Fetch user info on load
+            getUserInfo();
         </script>
     </body>
 </html>
