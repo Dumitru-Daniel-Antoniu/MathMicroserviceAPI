@@ -3,7 +3,7 @@ from passlib.context import CryptContext
 from fastapi import APIRouter, HTTPException, Request, Depends
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from datetime import datetime, timedelta
-from schemas.schemas import LoginRequest, User, TokenData
+from schemas.schemas import LoginRequest, User, TokenData, InternalUser
 import os
 
 
@@ -31,9 +31,9 @@ def authenticate_user(username: str, password: str):
     user_dict = fake_user_db.get(username)
     if not user_dict or not verify_password(password, user_dict['hashed_password']):
         return None
-    return User(**user_dict)
+    return InternalUser(**user_dict)
 
-def get_current_user(request: Request, token: str = Depends(oauth2_scheme)) -> User:
+def get_current_user(request: Request) -> User:
     token = None
 
     # Try to get token from Authorization header
@@ -48,11 +48,6 @@ def get_current_user(request: Request, token: str = Depends(oauth2_scheme)) -> U
     if not token:
         raise HTTPException(status_code=401, detail="Token missing")
     
-    credentials_exception = HTTPException(
-        status_code=401,
-        detail="Could not validate credentials",
-        headers={"WWW-Authenticate": "Bearer"},
-    )
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         username: str = payload.get("sub")

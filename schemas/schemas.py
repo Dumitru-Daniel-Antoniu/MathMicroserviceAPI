@@ -2,6 +2,12 @@ from pydantic import BaseModel, Field
 
 
 class User(BaseModel):
+    """Schema for user data."""
+    username: str = Field(..., description="Username of the user")
+    disabled: bool = Field(default=False, description="Indicates if the user is disabled")
+
+
+class InternalUser(BaseModel):
     """Schema for user authentication."""
     username: str
     hashed_password: str = Field(..., min_length=8, description="User's password with minimum length of 8 characters")
