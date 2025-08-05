@@ -3,4 +3,4 @@ __pycache__/
 *.pyo
 *.pyd
 dashboards/dashboard.yml
-.idea/workspace.xml
+.idea/
