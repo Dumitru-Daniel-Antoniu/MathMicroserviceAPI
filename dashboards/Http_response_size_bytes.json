@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 3,
+  "id": 6,
   "links": [],
   "panels": [
     {
@@ -110,12 +110,10 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "histogram_quantile(0.9, rate(http_request_duration_highr_seconds_bucket[1m]))",
+          "expr": "rate(http_response_size_bytes_sum[1m]) / (rate(http_response_size_bytes_count[1m]))",
           "fullMetaSearch": false,
-          "hide": false,
           "includeNullMetadata": false,
-          "instant": false,
-          "legendFormat": "bucket",
+          "legendFormat": "{{handler}}",
           "range": true,
           "refId": "A",
           "useBackend": false
@@ -132,12 +130,12 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "Http request duration highr seconds",
-  "uid": "d995f02e-18b3-454b-89d5-b1f863d374d9",
-  "version": 3
+  "title": "Http response size bytes",
+  "uid": "7ad572e4-e845-449e-9d9c-817e888b7595",
+  "version": 2
 }

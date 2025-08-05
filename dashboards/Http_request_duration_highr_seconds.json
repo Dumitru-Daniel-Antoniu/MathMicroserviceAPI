@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 8,
+  "id": 3,
   "links": [],
   "panels": [
     {
@@ -79,32 +79,7 @@
             ]
           }
         },
-        "overrides": [
-          {
-            "__systemRef": "hideSeriesFrom",
-            "matcher": {
-              "id": "byNames",
-              "options": {
-                "mode": "exclude",
-                "names": [
-                  "{__name__=\"cache_hits_total\", endpoint=\"/pow?base=4&exponent=5\", instance=\"web:8000\", job=\"fastapi\"}"
-                ],
-                "prefix": "All except:",
-                "readOnly": true
-              }
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": true
-                }
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 8,
@@ -135,11 +110,12 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "rate(cache_hits_total[1m])",
+          "expr": "histogram_quantile(0.9, rate(http_request_duration_highr_seconds_bucket[1m]))",
           "fullMetaSearch": false,
+          "hide": false,
           "includeNullMetadata": false,
-          "interval": "",
-          "legendFormat": "{{method}} {{endpoint}}",
+          "instant": false,
+          "legendFormat": "bucket",
           "range": true,
           "refId": "A",
           "useBackend": false
@@ -156,12 +132,12 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "Cache hits total",
-  "uid": "6fccc10e-eb7b-4d39-992f-b3c1218c4ae5",
+  "title": "Http request duration highr seconds",
+  "uid": "d995f02e-18b3-454b-89d5-b1f863d374d9",
   "version": 3
 }

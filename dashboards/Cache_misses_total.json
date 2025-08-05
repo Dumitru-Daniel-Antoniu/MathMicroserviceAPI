@@ -110,7 +110,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "rate(cache_misses_total[1m])",
+          "expr": "increase(cache_misses_total[1m])",
           "fullMetaSearch": false,
           "includeNullMetadata": false,
           "legendFormat": "{{method}} {{endpoint}}",
@@ -130,7 +130,7 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {},

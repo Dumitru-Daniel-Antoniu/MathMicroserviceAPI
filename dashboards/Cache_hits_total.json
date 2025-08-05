@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 6,
+  "id": 8,
   "links": [],
   "panels": [
     {
@@ -110,10 +110,11 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "rate(http_response_size_bytes_sum[1m]) / (rate(http_response_size_bytes_count[1m]))",
+          "expr": "increase(cache_hits_total[1m])",
           "fullMetaSearch": false,
           "includeNullMetadata": false,
-          "legendFormat": "{{handler}}",
+          "interval": "",
+          "legendFormat": "{{method}} {{endpoint}}",
           "range": true,
           "refId": "A",
           "useBackend": false
@@ -130,12 +131,12 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "Http response size bytes",
-  "uid": "7ad572e4-e845-449e-9d9c-817e888b7595",
-  "version": 2
+  "title": "Cache hits total",
+  "uid": "6fccc10e-eb7b-4d39-992f-b3c1218c4ae5",
+  "version": 3
 }

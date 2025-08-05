@@ -2,4 +2,5 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
-grafana/dashboards/dashboard.yml
+dashboards/dashboard.yml
+.idea/workspace.xml

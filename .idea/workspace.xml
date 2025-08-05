@@ -5,15 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef5aea33-d351-4a0c-a039-a7705a122d4e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/static/statistics.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grafana/dashboards/Cache_hits_total.json" beforeDir="false" afterPath="$PROJECT_DIR$/grafana/dashboards/Cache_hits_total.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grafana/dashboards/Cache_misses_total.json" beforeDir="false" afterPath="$PROJECT_DIR$/grafana/dashboards/Cache_misses_total.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grafana/dashboards/Http_request_duration_highr_seconds.json" beforeDir="false" afterPath="$PROJECT_DIR$/grafana/dashboards/Http_request_duration_highr_seconds.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grafana/dashboards/Http_request_duration_seconds.json" beforeDir="false" afterPath="$PROJECT_DIR$/grafana/dashboards/Http_request_duration_seconds.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grafana/dashboards/Http_request_size_bytes.json" beforeDir="false" afterPath="$PROJECT_DIR$/grafana/dashboards/Http_request_size_bytes.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grafana/dashboards/Http_requests_total.json" beforeDir="false" afterPath="$PROJECT_DIR$/grafana/dashboards/Http_requests_total.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grafana/dashboards/Http_response_size_bytes.json" beforeDir="false" afterPath="$PROJECT_DIR$/grafana/dashboards/Http_response_size_bytes.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers/cache_helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/cache_helpers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grafana/dashboard_provisioning.yml" beforeDir="false" afterPath="$PROJECT_DIR$/provisioning/dashboards.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grafana/dashboards/Cache_hits_total.json" beforeDir="false" afterPath="$PROJECT_DIR$/dashboards/Cache_hits_total.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grafana/dashboards/Cache_misses_total.json" beforeDir="false" afterPath="$PROJECT_DIR$/dashboards/Cache_misses_total.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grafana/dashboards/Http_request_duration_highr_seconds.json" beforeDir="false" afterPath="$PROJECT_DIR$/dashboards/Http_request_duration_highr_seconds.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grafana/dashboards/Http_request_duration_seconds.json" beforeDir="false" afterPath="$PROJECT_DIR$/dashboards/Http_request_duration_seconds.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grafana/dashboards/Http_request_size_bytes.json" beforeDir="false" afterPath="$PROJECT_DIR$/dashboards/Http_request_size_bytes.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grafana/dashboards/Http_requests_total.json" beforeDir="false" afterPath="$PROJECT_DIR$/dashboards/Http_requests_total.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grafana/dashboards/Http_response_size_bytes.json" beforeDir="false" afterPath="$PROJECT_DIR$/dashboards/Http_response_size_bytes.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/operations.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/test.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,10 +65,10 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\dandumitru\OneDrive - ENDAVA\Desktop\PythonTrainings\PythonHomework" />
+      <recent name="C:\Users\dandumitru\OneDrive - ENDAVA\Desktop\PythonTrainings\PythonHomework\static" />
       <recent name="C:\Users\dandumitru\OneDrive - ENDAVA\Desktop\PythonTrainings\PythonHomework\math_venv" />
       <recent name="C:\Users\dandumitru\OneDrive - ENDAVA\Desktop\PythonTrainings\PythonHomework\MathMicroserviceAPI\test" />
       <recent name="C:\Users\dandumitru\OneDrive - ENDAVA\Desktop\PythonTrainings\PythonHomework\MathMicroserviceAPI\application" />
-      <recent name="C:\Users\dandumitru\OneDrive - ENDAVA\Desktop\PythonTrainings\PythonHomework\MathMicroserviceAPI\database" />
     </key>
   </component>
   <component name="SharedIndexes">

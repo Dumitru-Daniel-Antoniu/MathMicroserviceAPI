@@ -11,6 +11,8 @@ services:
       - redis
     environment:
       - PROMETHEUS_MULTIPROC_DIR=/tmp
+    networks:
+      - monitoring
 
   redis:
     image: redis:7
@@ -18,31 +20,50 @@ services:
     ports:
       - "6379:6379"
     restart: always
+    networks:
+      - monitoring
 
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
     ports:
       - "9090:9090"
+    networks:
+        - monitoring
 
   grafana:
     image: grafana/grafana:latest
-    container_name: grafana
+    container_name: provisioning
     ports:
       - "3000:3000"
     depends_on:
       - prometheus
+    networks:
+      - monitoring
     volumes:
-      - ./grafana/dashboards:/etc/grafana/provisioning/dashboards
-      - ./grafana/dashboard_provisioning.yml:/etc/grafana/provisioning/dashboards/dashboard.yml
       - grafana-data:/var/lib/grafana
+      - ./dashboards:/var/lib/grafana/dashboards
+      - ./provisioning:/etc/grafana/provisioning/dashboards
     environment:
+      - GF_SECURITY_ALLOW_EMBEDDING=true
+      - GF_SERVER_DOMAIN=localhost
+      - GF_SERVER_ROOT_URL=http://localhost:3000
+      - GF_SERVER_SERVE_FROM_SUB_PATH=true
+      - GF_SECURITY_COOKIE_SAME_SITE=none
       - GF_AUTH_ANONYMOUS_ENABLED=true
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
 
+
+networks:
+  monitoring:
+
 volumes:
   grafana-data:
+
+  prometheus-data:
+    driver: local
