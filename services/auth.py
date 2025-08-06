@@ -1,11 +1,11 @@
 from jose import JWTError, jwt
 from passlib.context import CryptContext
-from fastapi import APIRouter, HTTPException, Request, Depends
-from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
+from fastapi import APIRouter, HTTPException, Request
+from fastapi.security import OAuth2PasswordBearer
 from datetime import datetime, timedelta
-from schemas.schemas import LoginRequest, User, TokenData, InternalUser
+from schemas.schemas import User, InternalUser
 import os
-
+from services.logging_utils import log_to_kafka
 
 SECRET_KEY = os.getenv("SECRET_KEY", "asecretkey")
 ALGORITHM = "HS256"
@@ -30,7 +30,10 @@ def verify_password(plain_password, hashed_password):
 def authenticate_user(username: str, password: str):
     user_dict = fake_user_db.get(username)
     if not user_dict or not verify_password(password, user_dict['hashed_password']):
+        log_to_kafka(f"Authentication failed for user: {username}")
         return None
+    
+    log_to_kafka(f"User authenticated successfully: {username}")
     return InternalUser(**user_dict)
 
 def get_current_user(request: Request) -> User:
