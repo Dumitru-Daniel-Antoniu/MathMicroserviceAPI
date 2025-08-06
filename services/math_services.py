@@ -1,5 +1,4 @@
 import math
-from functools import lru_cache
 
 
 def power(base: float, exponent: float) -> float:

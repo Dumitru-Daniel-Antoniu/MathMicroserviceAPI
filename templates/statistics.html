@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Application Metrics</title>
+    <link rel="icon" href="/static/statistics.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/stats.css">
+  </head>
+  <body>
+    <h1>Application Metrics</h1>
+
+    <div class="panel">
+      <div class="panel-menu-bar" onclick="togglePanel(this)">
+        <span>📊 Cache Hits Total</span>
+        <span>▼</span>
+      </div>
+      <div class="panel-iframe">
+        <iframe src="http://localhost:3000/d-solo/6fccc10e-eb7b-4d39-992f-b3c1218c4ae5/cache-hits-total?orgId=1&refresh=5s&from=now-15m&to=now&timezone=browser&panelId=1&__feature.dashboardSceneSolo=true" width="450" height="400" frameborder="0"></iframe>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-menu-bar" onclick="togglePanel(this)">
+        <span>📉 Cache Misses Total</span>
+        <span>▼</span>
+      </div>
+      <div class="panel-iframe">
+        <iframe src="http://localhost:3000/d-solo/f1b123db-d23c-45b3-90fe-de9395cbd517/cache-misses-total?orgId=1&refresh=5s&from=now-15m&to=now&timezone=browser&panelId=1&__feature.dashboardSceneSolo=true" width="450" height="400" frameborder="0"></iframe>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-menu-bar" onclick="togglePanel(this)">
+        <span>⏱️ HTTP Request Duration (Seconds)</span>
+        <span>▼</span>
+      </div>
+      <div class="panel-iframe">
+        <iframe src="http://localhost:3000/d-solo/c8a18fb3-e2e4-446c-b663-b8620ee31466/http-request-duration-seconds?orgId=1&refresh=5s&from=now-15m&to=now&timezone=browser&panelId=1&__feature.dashboardSceneSolo=true" width="450" height="400" frameborder="0"></iframe>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-menu-bar" onclick="togglePanel(this)">
+        <span>📏 HTTP Request Duration High resolution (Seconds)</span>
+        <span>▼</span>
+      </div>
+      <div class="panel-iframe">
+        <iframe src="http://localhost:3000/d-solo/d995f02e-18b3-454b-89d5-b1f863d374d9/http-request-duration-highr-seconds?orgId=1&refresh=5s&from=now-15m&to=now&timezone=browser&panelId=1&__feature.dashboardSceneSolo=true" width="450" height="400" frameborder="0"></iframe>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-menu-bar" onclick="togglePanel(this)">
+        <span>📬 HTTP Requests Total</span>
+        <span>▼</span>
+      </div>
+      <div class="panel-iframe">
+        <iframe src="http://localhost:3000/d-solo/8ab65fa9-10bd-4cb8-b884-67c5dd6e761a/http-requests-total?orgId=1&refresh=5s&from=now-15m&to=now&timezone=browser&panelId=1&__feature.dashboardSceneSolo=true" width="450" height="400" frameborder="0"></iframe>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-menu-bar" onclick="togglePanel(this)">
+        <span>📦 HTTP Request Size (Bytes)</span>
+        <span>▼</span>
+      </div>
+      <div class="panel-iframe">
+        <iframe src="http://localhost:3000/d-solo/8945855c-1b02-4561-b72f-525b0f6a951c/http-request-size-bytes?orgId=1&refresh=5s&from=now-15m&to=now&timezone=browser&panelId=1&__feature.dashboardSceneSolo=true" width="450" height="400" frameborder="0"></iframe>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-menu-bar" onclick="togglePanel(this)">
+        <span>📤 HTTP Response Size (Bytes)</span>
+        <span>▼</span>
+      </div>
+      <div class="panel-iframe">
+        <iframe src="http://localhost:3000/d-solo/7ad572e4-e845-449e-9d9c-817e888b7595/http-response-size-bytes?orgId=1&refresh=5s&from=now-15m&to=now&timezone=browser&panelId=1&__feature.dashboardSceneSolo=true" width="450" height="400" frameborder="0"></iframe>
+      </div>
+    </div>
+
+    <pre>{{statistics}}</pre>
+  </body>
+  <script src="/static/panels.js"></script>
+</html>
