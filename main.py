@@ -1,13 +1,16 @@
-from fastapi import FastAPI, Request
+import logging
+from fastapi import FastAPI, Request, Depends
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.templating import Jinja2Templates
 from prometheus_fastapi_instrumentator import Instrumentator
 from prometheus_client import generate_latest
 from contextlib import asynccontextmanager
-from controllers.controllers import router as math_router
+from controllers.controllers import router
 from database.database import get_db
 from services.cache import init_cache
+from services.auth import verify_token
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -24,7 +27,7 @@ def create_app() -> FastAPI:
 
 app = create_app()
 
-app.include_router(math_router)
+app.include_router(router)
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
@@ -46,6 +49,15 @@ async def statistics(request: Request):
 
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    token = request.cookies.get("access_token")
+    print(f"Token from cookies: {token}")
+    user = None
+    if token:
+        user = verify_token(token)
+        print(f"User from token: {user}")
+    if user:
+        return templates.TemplateResponse("index.html", {"request": request, "user": user})
+    else:
+        return templates.TemplateResponse("login.html", {"request": request})
 
 Instrumentator().instrument(app).expose(app, endpoint="/metrics")
