@@ -2,14 +2,12 @@ import math
 from functools import lru_cache
 
 
-@lru_cache(maxsize=128)
 def power(base: float, exponent: float) -> float:
     """Calculate the power of a number."""
     print("Power is calculated")
     return math.pow(base, exponent)
 
 
-@lru_cache(maxsize=128)
 def sqrt(value: float) -> float:
     """Calculate the square root of a number."""
     print("Square root is calculated")
@@ -18,7 +16,6 @@ def sqrt(value: float) -> float:
     return math.sqrt(value)
 
 
-@lru_cache(maxsize=128)
 def logarithm(value: float, base: float = 10) -> float:
     """Calculate the logarithm of a number with a specified base."""
     print("Logarithm is calculated")
@@ -29,14 +26,12 @@ def logarithm(value: float, base: float = 10) -> float:
     return math.log(value, base)
 
 
-@lru_cache(maxsize=128)
 def factorial(value: int) -> int:
     """Calculate the factorial of a non-negative integer."""
     print("Factorial is calculated")
     return math.factorial(value)
 
 
-@lru_cache(maxsize=128)
 def fibonacci(n: int) -> int:
     """Calculate the nth Fibonacci number."""
     print("Fibonacci is calculated")
