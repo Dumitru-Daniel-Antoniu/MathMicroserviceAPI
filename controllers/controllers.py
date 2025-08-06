@@ -1,12 +1,12 @@
+import time
 from fastapi import APIRouter, BackgroundTasks, HTTPException
-
 from schemas.schemas import PowRequest, FibonacciRequest, \
                             FactorialRequest, SqrtRequest, LogRequest
 from services.math_services import power, fibonacci, factorial, sqrt, logarithm
 from prometheus_client import Counter
-
 from views.views import OperationView
 from helpers.cache_helpers import handle_cached_operation
+from services.logging_utils import log_to_kafka
 
 router = APIRouter()
 
@@ -89,3 +89,9 @@ async def calculate_factorial(
         )
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+
+@router.get("/test-kafka")
+def test_kafka():
+    log_to_kafka({"manual": "test", "source": "test-kafka route"})
+    time.sleep(1)  # Give some time for the message to be processed
+    return {"status": "test message sent"}
