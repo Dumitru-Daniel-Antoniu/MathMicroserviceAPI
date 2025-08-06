@@ -5,12 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef5aea33-d351-4a0c-a039-a7705a122d4e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/panels.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stats.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/statistics.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/kafka_messages.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/kfk_consumer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/logging_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/controllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/controllers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemas/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/test.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +56,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "monitoring",
+    "git-widget-placeholder": "Merging monitoring",
     "last_opened_file_path": "C:/Users/dandumitru/OneDrive - ENDAVA/Desktop/PythonTrainings/PythonHomework",
     "settings.editor.selected.configurable": "preferences.sourceCode.HTML"
   }
