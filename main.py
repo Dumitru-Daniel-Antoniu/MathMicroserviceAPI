@@ -35,7 +35,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 
-@app.get("/statistics", response_class=HTMLResponse)
+@app.get("/statistics", tags=["Metrics"])
 async def statistics(request: Request):
     statistics = generate_latest().decode()
 
@@ -47,7 +47,7 @@ async def statistics(request: Request):
         }
     )
 
-@app.get("/", response_class=HTMLResponse)
+@app.get("/", tags=["Application"])
 async def root(request: Request):
     token = request.cookies.get("access_token")
     print(f"Token from cookies: {token}")
@@ -56,7 +56,7 @@ async def root(request: Request):
         user = verify_token(token)
         print(f"User from token: {user}")
     if user:
-        return templates.TemplateResponse("index.html", {"request": request, "user": user})
+        return templates.TemplateResponse("menu.html", {"request": request, "user": user})
     else:
         return templates.TemplateResponse("login.html", {"request": request})
 

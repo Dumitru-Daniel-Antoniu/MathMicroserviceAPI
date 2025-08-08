@@ -1,7 +1,6 @@
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker
 from models.models import Base, OperationLog
-from services.logging_utils import log_to_kafka
 
 DATABASE_URL = "sqlite+aiosqlite:///./test.db"
 
@@ -34,4 +33,3 @@ async def log_request(operation: str, input_data: dict, result: float):
         "result": result
     }
     print(f"Logged to Kafka: {log_entry}")
-    log_to_kafka(log_entry)

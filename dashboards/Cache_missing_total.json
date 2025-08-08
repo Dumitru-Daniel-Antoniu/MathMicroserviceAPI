@@ -24,7 +24,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "beti19httd91ce"
+        "uid": "aeua2ol355se8f"
       },
       "fieldConfig": {
         "defaults": {
@@ -106,13 +106,13 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "beti19httd91ce"
+            "uid": "aeua2ol355se8f"
           },
           "disableTextWrap": false,
           "editorMode": "builder",
           "expr": "increase(cache_misses_total[1m])",
           "fullMetaSearch": false,
-          "includeNullMetadata": false,
+          "includeNullMetadata": true,
           "legendFormat": "{{method}} {{endpoint}}",
           "range": true,
           "refId": "A",
@@ -135,7 +135,7 @@
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "Cache misses total",
-  "uid": "f1b123db-d23c-45b3-90fe-de9395cbd517",
-  "version": 4
+  "title": "Cache missing total",
+  "uid": "02d44238-6af6-43fb-b495-f9bbbfa5dcaa",
+  "version": 1
 }

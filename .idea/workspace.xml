@@ -5,12 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef5aea33-d351-4a0c-a039-a7705a122d4e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/panels.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stats.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/statistics.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/menu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/menu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/controllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/controllers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboards/Cache_hits_total.json" beforeDir="false" afterPath="$PROJECT_DIR$/dashboards/Cache_hits_total.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboards/Cache_misses_total.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboards/Http_request_duration_highr_seconds.json" beforeDir="false" afterPath="$PROJECT_DIR$/dashboards/Cache_missing_total.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboards/Http_request_duration_seconds.json" beforeDir="false" afterPath="$PROJECT_DIR$/dashboards/Http_request_duration_seconds.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboards/Http_request_size_bytes.json" beforeDir="false" afterPath="$PROJECT_DIR$/dashboards/Http_request_size_bytes.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboards/Http_requests_total.json" beforeDir="false" afterPath="$PROJECT_DIR$/dashboards/Http_requests_total.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboards/Http_response_size_bytes.json" beforeDir="false" afterPath="$PROJECT_DIR$/dashboards/Http_response_size_bytes.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/kafka_messages.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/kfk_consumer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/logging_utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/math_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/math_services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/operations.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/menu.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/panels.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/statistics.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/stats.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/statistics.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/menu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/statistics.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/statistics.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/test.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,27 +62,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.main.executor": "Run",
-    "Python.testing.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "monitoring",
-    "last_opened_file_path": "C:/Users/dandumitru/OneDrive - ENDAVA/Desktop/PythonTrainings/PythonHomework",
-    "settings.editor.selected.configurable": "preferences.sourceCode.HTML"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.testing.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/dandumitru/OneDrive - ENDAVA/Desktop/PythonTrainings/PythonHomework&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.HTML&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\dandumitru\OneDrive - ENDAVA\Desktop\PythonTrainings\PythonHomework\templates" />
+      <recent name="C:\Users\dandumitru\OneDrive - ENDAVA\Desktop\PythonTrainings\PythonHomework\dashboards" />
       <recent name="C:\Users\dandumitru\OneDrive - ENDAVA\Desktop\PythonTrainings\PythonHomework" />
       <recent name="C:\Users\dandumitru\OneDrive - ENDAVA\Desktop\PythonTrainings\PythonHomework\static" />
       <recent name="C:\Users\dandumitru\OneDrive - ENDAVA\Desktop\PythonTrainings\PythonHomework\math_venv" />
-      <recent name="C:\Users\dandumitru\OneDrive - ENDAVA\Desktop\PythonTrainings\PythonHomework\MathMicroserviceAPI\test" />
-      <recent name="C:\Users\dandumitru\OneDrive - ENDAVA\Desktop\PythonTrainings\PythonHomework\MathMicroserviceAPI\application" />
     </key>
   </component>
   <component name="SharedIndexes">
