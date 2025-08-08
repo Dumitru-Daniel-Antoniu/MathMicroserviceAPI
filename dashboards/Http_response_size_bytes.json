@@ -18,13 +18,13 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 6,
+  "id": 15,
   "links": [],
   "panels": [
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "beti19httd91ce"
+        "uid": "aeua2ol355se8f"
       },
       "fieldConfig": {
         "defaults": {
@@ -106,7 +106,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "beti19httd91ce"
+            "uid": "aeua2ol355se8f"
           },
           "disableTextWrap": false,
           "editorMode": "builder",
@@ -136,6 +136,6 @@
   "timepicker": {},
   "timezone": "browser",
   "title": "Http response size bytes",
-  "uid": "7ad572e4-e845-449e-9d9c-817e888b7595",
-  "version": 2
+  "uid": "6cad98f7-dabc-41c7-93f8-bee81442af2d",
+  "version": 1
 }

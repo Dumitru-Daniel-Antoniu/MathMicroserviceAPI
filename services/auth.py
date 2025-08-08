@@ -5,7 +5,6 @@ from fastapi.security import OAuth2PasswordBearer
 from datetime import datetime, timedelta
 from schemas.schemas import User, InternalUser
 import os
-from services.logging_utils import log_to_kafka
 
 SECRET_KEY = os.getenv("SECRET_KEY", "asecretkey")
 ALGORITHM = "HS256"
@@ -30,10 +29,8 @@ def verify_password(plain_password, hashed_password):
 def authenticate_user(username: str, password: str):
     user_dict = fake_user_db.get(username)
     if not user_dict or not verify_password(password, user_dict['hashed_password']):
-        log_to_kafka(f"Authentication failed for user: {username}")
         return None
-    
-    log_to_kafka(f"User authenticated successfully: {username}")
+
     return InternalUser(**user_dict)
 
 def get_current_user(request: Request) -> User:
@@ -78,9 +75,11 @@ def verify_token(token: str):
         user_data = fake_user_db.get(username)
         return User(**user_data) if user_data else None
     except jwt.ExpiredSignatureError:
-        raise HTTPException(status_code=401, detail="Token has expired")
+        return None
+        # raise HTTPException(status_code=401, detail="Token has expired")
     except jwt.InvalidTokenError:
-        raise HTTPException(status_code=401, detail="Invalid token")
+        return None
+        # raise HTTPException(status_code=401, detail="Invalid token")
     
 
 # @router.post("/login")

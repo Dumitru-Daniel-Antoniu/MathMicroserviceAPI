@@ -1,0 +1,117 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #dcdcdc;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #2c3e50, #4ca1af) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.hidden {
+  display: none;
+}
+
+.toggle-text {
+  color: #4ca1af;
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+}
+
+.toggle-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #4ca1af, #2c3e50);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  box-shadow: 0 2px 8px rgba(76,161,175,0.2);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.toggle-btn:hover {
+  background: linear-gradient(135deg, #2c3e50, #4ca1af);
+}
+
+.form-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.form-box {
+  background: rgba(0, 0, 0, 0.85);
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-box h2 {
+  color: #4ca1af;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.form-box label {
+  color: #dcdcdc;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  align-self: flex-start;
+}
+
+.input-box {
+  background: #c0c0c0;
+  color: #000;
+  border: 1px solid #4ca1af;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  font-size: 1.1rem;
+  box-sizing: border-box;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.input-box:focus {
+  border: 1.5px solid #4ca1af;
+}
+
+.form-btn {
+  background: linear-gradient(135deg, #4ca1af, #2c3e50);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(76,161,175,0.2);
+  transition: background 0.2s;
+}
+
+.form-btn:hover {
+  background: linear-gradient(135deg, #2c3e50, #4ca1af);
+}
