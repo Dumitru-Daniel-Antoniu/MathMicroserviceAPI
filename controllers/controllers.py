@@ -8,18 +8,31 @@ from schemas.schemas import PowRequest, FibonacciRequest, \
 from services.math_services import power, fibonacci, factorial, sqrt, logarithm
 from database.database import log_request
 from fastapi_cache.decorator import cache
-from services.auth import get_current_user, create_access_token, authenticate_user
+from services.auth import get_current_user, create_access_token, \
+                            authenticate_user, create_user
 import time
 
 router = APIRouter()
 
 @router.post("/login", response_model=LoginResponse, status_code=status.HTTP_200_OK)
-def login(form_data: LoginRequest):
-    user = authenticate_user(form_data.username, form_data.password)
+async def login(form_data: LoginRequest):
+    user = await authenticate_user(form_data.username, form_data.password)
     if not user:
         raise HTTPException(status_code=401, detail="Invalid credentials")
     access_token = create_access_token(data={"sub": user.username})
     
+    result = JSONResponse(
+        content={"access_token": access_token, "token_type": "bearer"}
+    )
+    result.set_cookie(key="access_token", value=access_token, httponly=True)
+    return result
+
+@router.post("/register", response_model=LoginResponse, status_code=status.HTTP_201_CREATED)
+async def register(form_data: LoginRequest):
+    user = await create_user(form_data.username, form_data.password)
+    if not user:
+        raise HTTPException(status_code=400, detail="User already exists")
+    access_token = create_access_token(data={"sub": user.username})
     result = JSONResponse(
         content={"access_token": access_token, "token_type": "bearer"}
     )
@@ -127,9 +140,9 @@ async def calculate_factorial(request: FactorialRequest,
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
-@router.get("/test-kafka")
-def test_kafka():
-    from services.logging_utils import log_to_kafka
-    log_to_kafka({"manual": "test", "source": "test-kafka route"})
+@router.get("/test-redis")
+def test_redis():
+    from services.logging_utils import log_to_redis_stream
+    log_to_redis_stream({"manual": "test", "source": "test-kafka route"})
     time.sleep(1)  # Give some time for the message to be processed
     return {"status": "test message sent"}

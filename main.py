@@ -36,7 +36,7 @@ async def root(request: Request):
     print(f"Token from cookies: {token}")
     user = None
     if token:
-        user = verify_token(token)
+        user = await verify_token(token)
         print(f"User from token: {user}")
     if user:
         return templates.TemplateResponse("index.html", {"request": request, "user": user})

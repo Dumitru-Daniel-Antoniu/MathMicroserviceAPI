@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, Float
+from sqlalchemy import Column, Integer, String, DateTime, Float, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime, timezone
 
@@ -22,3 +22,13 @@ class OperationLog(Base):
         input='{self.input}',
         result={self.result},
         timestamp='{self.timestamp}')>"""
+
+
+class User(Base):
+    """Model for user authentication."""
+    __tablename__ = 'users'
+
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String, unique=True, index=True)
+    hashed_password = Column(String)
+    disabled = Column(Boolean, default=False)

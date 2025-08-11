@@ -2,10 +2,14 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.security import OAuth2PasswordBearer
+from fastapi.responses import RedirectResponse
 from datetime import datetime, timedelta
-from schemas.schemas import User, InternalUser
+from schemas.schemas import User
 import os
-from services.logging_utils import log_to_kafka
+from sqlalchemy import select
+from services.logging_utils import log_to_redis_stream
+from database.database import SessionLocal
+from models.models import User as UserModel
 
 SECRET_KEY = os.getenv("SECRET_KEY", "asecretkey")
 ALGORITHM = "HS256"
@@ -16,27 +20,36 @@ router = APIRouter()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-fake_user_db = {
-    "testuser": {
-        "username": "testuser",
-        "hashed_password": pwd_context.hash("testpassword"),
-        "disabled": False,
-    }
-}
+
 
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)
 
-def authenticate_user(username: str, password: str):
-    user_dict = fake_user_db.get(username)
-    if not user_dict or not verify_password(password, user_dict['hashed_password']):
-        log_to_kafka(f"Authentication failed for user: {username}")
-        return None
+async def authenticate_user(username: str, password: str):
+    async with SessionLocal() as session:
+        result = await session.execute(select(UserModel).where(UserModel.username == username))
+        user = result.scalar_one_or_none()
     
-    log_to_kafka(f"User authenticated successfully: {username}")
-    return InternalUser(**user_dict)
+    if not user or not verify_password(password, user.hashed_password):
+        log_to_redis_stream(f"Authentication failed for user: {username}")
+        return None
+    return user
 
-def get_current_user(request: Request) -> User:
+async def create_user(username: str, password: str):
+    async with SessionLocal() as session:
+        result = await session.execute(select(UserModel).where(UserModel.username == username))
+        user = result.scalar_one_or_none()
+        if user:
+            log_to_redis_stream(f"User already exists: {username}")
+            return None
+        hashed_password = pwd_context.hash(password)
+        new_user = UserModel(username=username, hashed_password=hashed_password)
+        session.add(new_user)
+        await session.commit()
+        log_to_redis_stream(f"User created successfully: {username}")
+        return new_user
+
+async def get_current_user(request: Request) -> User:
     token = None
 
     # Try to get token from Authorization header
@@ -58,10 +71,14 @@ def get_current_user(request: Request) -> User:
             raise HTTPException(status_code=401, detail="Invalid token payload")
     except JWTError:
         raise HTTPException(status_code=401, detail="Invalid token")
-    user = fake_user_db.get(username)
+    
+    async with SessionLocal() as session:
+        result = await session.execute(select(UserModel).where(UserModel.username == username))
+        user = result.scalar_one_or_none()
+
     if user is None:
         raise HTTPException(status_code=401, detail="User not found")
-    return User(username=user["username"], disabled=user["disabled"])
+    return User(username=user.username, disabled=user.disabled)
 
 def create_access_token(data: dict, expires_delta: timedelta = None):
     to_encode = data.copy()
@@ -69,30 +86,22 @@ def create_access_token(data: dict, expires_delta: timedelta = None):
     to_encode.update({"exp": expire})
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
-def verify_token(token: str):
+async def verify_token(token: str):
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         username = payload.get("sub")
         if not username:
             return None
-        user_data = fake_user_db.get(username)
-        return User(**user_data) if user_data else None
+
+        async with SessionLocal() as session:
+            result = await session.execute(select(UserModel).where(UserModel.username == username))
+            user = result.scalar_one_or_none()
+            return user
+
+        if user:
+            return User(username=user.username, disabled=user.disabled)
+        return None
     except jwt.ExpiredSignatureError:
-        raise HTTPException(status_code=401, detail="Token has expired")
+        return RedirectResponse(url="/logout")
     except jwt.InvalidTokenError:
         raise HTTPException(status_code=401, detail="Invalid token")
-    
-
-# @router.post("/login")
-# async def access_token_login(form_data: OAuth2PasswordRequestForm = Depends()):
-#     if form_data.username != fake_user['username'] or not pwd_context.verify(form_data.password, fake_user['hashed_password']):
-#         raise HTTPException(
-#             status_code=status.HTTP_401_UNAUTHORIZED,
-#             detail="Incorrect username or password",
-#             headers={"WWW-Authenticate": "Bearer"},
-#         )
-#     access_token = create_access_token(
-#         data={"sub": form_data.username},
-#         expires_delta=timedelta(minutes=5)
-#     )
-#     return {"access_token": access_token, "token_type": "bearer"}
