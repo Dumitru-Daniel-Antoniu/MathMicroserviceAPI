@@ -10,10 +10,12 @@ SessionLocal: sessionmaker[AsyncSession] = sessionmaker(bind=engine,
                                                         class_=AsyncSession,
                                                         expire_on_commit=False)
 
+
 # Initiates database connection
 async def get_db():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+
 
 # Function to log requests
 async def log_request(operation: str, input_data: dict, result: float):
@@ -43,7 +45,7 @@ async def log_create_user(username: str, password: str):
         }
         session.add(new_user)
         await session.commit()
-    
+
     log_entry = {
         "username": username,
         "password": password

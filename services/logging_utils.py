@@ -26,3 +26,4 @@ def log_to_redis_stream(message: dict):
         print("Message logged to Redis stream:", message_clean)
     except Exception as e:
         print(f"Error logging to Redis stream: {e}")
+
