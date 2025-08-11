@@ -1,47 +1,28 @@
-from confluent_kafka import Producer
+import redis
 import json
 import os
-import time
 
-KAFKA_BROKER = os.getenv("KAFKA_BROKER", "localhost:9092")
-KAFKA_TOPIC = os.getenv("KAFKA_TOPIC", "logs")
+REDIS_STREAM = os.getenv("REDIS_STREAM", "logs")
+REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
+REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
 
-producer = None
+redis_client = redis.Redis(
+    host=REDIS_HOST,
+    port=REDIS_PORT,
+    decode_responses=True
+)
 
-def delivery_report(err, msg):
-    if err is not None:
-        print(f"Kafka delivery failed: {err}")
-    else:
-        print(f"Kafka message delivered to {msg.topic()} [{msg.partition()}]")
-
-def get_producer():
-    global producer
-    if not producer:
-        try:
-            print("Creating Kafka producer...")
-            producer = Producer({
-                'bootstrap.servers': KAFKA_BROKER,
-                'client.id': f'producer_{int(time.time())}',
-                'on_delivery': delivery_report
-            })
-            print("Kafka producer created successfully.")
-        except Exception as e:
-            print(f"Error creating Kafka producer: {e}")
-    return producer
-
-
-def log_to_kafka(message: dict):
+def log_to_redis_stream(message: dict):
     try:
-        producer = get_producer()
-        print("Sending message to Kafka:", message)
-        producer.produce(
-            KAFKA_TOPIC,
-            key=str(int(time.time())),
-            value=json.dumps(message),
-            callback=delivery_report
-        )
-        producer.flush()
-        print("Kafka acknowledged")
+        if not isinstance(message, dict):
+            message = {"message": str(message)}
+        
+        message_clean = {
+            k: json.dumps(v) if isinstance(v, (dict, list)) else str(v)
+            for k, v in message.items()
+        }
+        print("Logging to Redis stream:", message_clean)
+        redis_client.xadd(REDIS_STREAM, message_clean)
+        print("Message logged to Redis stream:", message_clean)
     except Exception as e:
-        print(f"Error logging to Kafka: {e}")
-    
+        print(f"Error logging to Redis stream: {e}")

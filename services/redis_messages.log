@@ -1,0 +1,15 @@
+2025-08-07T09:49:58.938686 - {"manual": "test", "source": "test-kafka route"}
+2025-08-07T09:50:04.993729 - {"manual": "test", "source": "test-kafka route"}
+2025-08-07T09:56:15.784440 - {"operation": "factorial", "input": "{\"n\": 11}", "result": "39916800"}
+2025-08-07T09:56:20.229604 - {"operation": "sqrt", "input": "{\"input\": 11}", "result": "3.3166247903554"}
+2025-08-07T10:17:13.763110 - {"message": "User authenticated successfully: testuser"}
+2025-08-07T10:17:13.764035 - {"operation": "factorial", "input": "{\"n\": 11}", "result": "39916800"}
+2025-08-07T10:17:24.003825 - {"message": "User authenticated successfully: testuser"}
+2025-08-07T10:17:29.029417 - {"operation": "factorial", "input": "{\"n\": 11}", "result": "39916800"}
+2025-08-07T10:17:30.628568 - {"operation": "sqrt", "input": "{\"input\": 11}", "result": "3.3166247903554"}
+2025-08-07T10:17:32.793320 - {"operation": "pow", "input": "{\"base\": 11, \"exponent\": 2}", "result": "121.0"}
+2025-08-07T13:41:05.627564 - {"message": "User authenticated successfully: testuser"}
+2025-08-07T13:41:30.892950 - {"operation": "factorial", "input": "{\"n\": 11}", "result": "39916800"}
+2025-08-07T13:41:31.927273 - {"operation": "sqrt", "input": "{\"input\": 11}", "result": "3.3166247903554"}
+2025-08-07T13:43:25.078678 - {"operation": "log", "input": "{\"input\": 11, \"base\": 2}", "result": "3.4594316186372978"}
+2025-08-07T13:43:30.616028 - {"operation": "pow", "input": "{\"base\": 11, \"exponent\": 2}", "result": "121.0"}
