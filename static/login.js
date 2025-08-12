@@ -1,11 +1,4 @@
-window.addEventListener('storage', function(event) {
-  if(event.key === 'login') {
-    window.location.reload();
-  }
-});
-
 function showForm(form) {
-    console.log("Show function executed");
     document.getElementById('login-form').classList.add('hidden');
     document.getElementById('register-form').classList.add('hidden');
     document.getElementById(form + '-form').classList.remove('hidden');
@@ -24,7 +17,7 @@ async function handleLogin(event) {
     if (response.ok) {
         const data = await response.json();
         document.cookie = `access_token=${data.access_token}; path=/; SameSite=Lax`;
-        localStorage.setItem('login', Date.now());
+        channel.postMessage('login');
         window.location.href = "/";
     } else {
         alert("Invalid username or password");
@@ -44,11 +37,11 @@ async function handleRegister(event) {
     if (response.ok) {
         const data = await response.json();
         document.cookie = `access_token=${data.access_token}; path=/; SameSite=Lax`;
-        localStorage.setItem('login', Date.now());
+        channel.postMessage('login');
         window.location.href = "/";
     } else {
         alert("Registration failed");
     }
 }
 
-showForm('login');
+showForm('register');

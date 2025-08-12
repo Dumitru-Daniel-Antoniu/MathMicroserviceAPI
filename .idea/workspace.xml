@@ -5,20 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef5aea33-d351-4a0c-a039-a7705a122d4e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/info.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/sync.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/Dockerfile.consumer" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/controllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/controllers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/logging_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/logging_utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/redis_consumer.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/redis_consumer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/redis_messages.log" beforeDir="false" afterPath="$PROJECT_DIR$/services/redis_messages.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/menu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/testing.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/testing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sync.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/sync.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/statistics.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/statistics.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +50,7 @@
   &quot;keyToString&quot;: {
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.redis_consumer.executor&quot;: &quot;Run&quot;,
     &quot;Python.testing.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
@@ -63,11 +63,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\dandumitru\OneDrive - ENDAVA\Desktop\PythonTrainings\PythonHomework\services" />
+      <recent name="C:\Users\dandumitru\OneDrive - ENDAVA\Desktop\PythonTrainings\PythonHomework" />
       <recent name="C:\Users\dandumitru\OneDrive - ENDAVA\Desktop\PythonTrainings\PythonHomework\templates" />
       <recent name="C:\Users\dandumitru\OneDrive - ENDAVA\Desktop\PythonTrainings\PythonHomework\dashboards" />
-      <recent name="C:\Users\dandumitru\OneDrive - ENDAVA\Desktop\PythonTrainings\PythonHomework" />
       <recent name="C:\Users\dandumitru\OneDrive - ENDAVA\Desktop\PythonTrainings\PythonHomework\static" />
-      <recent name="C:\Users\dandumitru\OneDrive - ENDAVA\Desktop\PythonTrainings\PythonHomework\math_venv" />
     </key>
   </component>
   <component name="SharedIndexes">

@@ -1,10 +1,3 @@
-window.addEventListener('storage', function(event) {
-  if(event.key === 'logout') {
-    console.log("Logout added");
-    window.location.href='/';
-  }
-});
-
 let currentOperation = "";
 
 function clearInputs() {
@@ -95,8 +88,6 @@ async function submitData(operation) {
 function isValidInteger(value) {
   if(value === "") return false;
   const parsed = Number(value);
-  console.log(Number.isInteger(parsed));
-  console.log(!isNaN(parsed));
   return Number.isInteger(parsed) && !isNaN(parsed);
 }
 
@@ -120,7 +111,7 @@ async function getUserInfo() {
 
 function logout() {
     document.cookie = "access_token=; path=/; Max-Age=0;";
-    localStorage.setItem('logout', Date.now());
+    channel.postMessage('logout');
     window.location.href = "/logout";
 }
 
