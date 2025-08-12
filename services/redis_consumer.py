@@ -42,7 +42,7 @@ with open(LOG_FILE, "a") as f:
             for stream, messages in response:
                 for msg_id, msg_data in messages:
                     log_entry = f"{datetime.now().isoformat()} - {json.dumps(msg_data)}"
-                    print("🔔", log_entry)
+                    print(log_entry)
                     f.write(log_entry + "\n")
                     # Acknowledge processing
                     redis_client.xack(
@@ -51,4 +51,4 @@ with open(LOG_FILE, "a") as f:
                         msg_id
                     )
     except KeyboardInterrupt:
-        print("🛑 Stopping consumer...")
+        print("Stopping consumer...")

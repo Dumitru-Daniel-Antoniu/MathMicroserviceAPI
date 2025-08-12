@@ -1,15 +1,43 @@
-2025-08-07T09:49:58.938686 - {"manual": "test", "source": "test-kafka route"}
-2025-08-07T09:50:04.993729 - {"manual": "test", "source": "test-kafka route"}
-2025-08-07T09:56:15.784440 - {"operation": "factorial", "input": "{\"n\": 11}", "result": "39916800"}
-2025-08-07T09:56:20.229604 - {"operation": "sqrt", "input": "{\"input\": 11}", "result": "3.3166247903554"}
-2025-08-07T10:17:13.763110 - {"message": "User authenticated successfully: testuser"}
-2025-08-07T10:17:13.764035 - {"operation": "factorial", "input": "{\"n\": 11}", "result": "39916800"}
-2025-08-07T10:17:24.003825 - {"message": "User authenticated successfully: testuser"}
-2025-08-07T10:17:29.029417 - {"operation": "factorial", "input": "{\"n\": 11}", "result": "39916800"}
-2025-08-07T10:17:30.628568 - {"operation": "sqrt", "input": "{\"input\": 11}", "result": "3.3166247903554"}
-2025-08-07T10:17:32.793320 - {"operation": "pow", "input": "{\"base\": 11, \"exponent\": 2}", "result": "121.0"}
-2025-08-07T13:41:05.627564 - {"message": "User authenticated successfully: testuser"}
-2025-08-07T13:41:30.892950 - {"operation": "factorial", "input": "{\"n\": 11}", "result": "39916800"}
-2025-08-07T13:41:31.927273 - {"operation": "sqrt", "input": "{\"input\": 11}", "result": "3.3166247903554"}
-2025-08-07T13:43:25.078678 - {"operation": "log", "input": "{\"input\": 11, \"base\": 2}", "result": "3.4594316186372978"}
-2025-08-07T13:43:30.616028 - {"operation": "pow", "input": "{\"base\": 11, \"exponent\": 2}", "result": "121.0"}
+2025-08-12T11:14:31.887844 - {"message": "User created successfully: Antoniu"}
+2025-08-12T11:14:31.888413 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
+2025-08-12T11:14:31.888812 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
+2025-08-12T11:14:31.889159 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
+2025-08-12T11:14:31.889471 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
+2025-08-12T11:14:31.889810 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
+2025-08-12T11:14:31.890174 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
+2025-08-12T11:14:31.890579 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
+2025-08-12T11:14:31.890943 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
+2025-08-12T11:14:57.419808 - {"operation": "sqrt", "input": "{\"input\": 4}", "result": "2.0"}
+2025-08-12T11:14:57.427120 - {"operation": "sqrt", "input": "{\"input\": 4}", "result": "2.0"}
+2025-08-12T11:14:57.743486 - {"operation": "sqrt", "input": "{\"input\": 4}", "result": "2.0"}
+2025-08-12T11:14:57.883347 - {"operation": "sqrt", "input": "{\"input\": 4}", "result": "2.0"}
+2025-08-12T11:14:58.199291 - {"operation": "sqrt", "input": "{\"input\": 4}", "result": "2.0"}
+2025-08-12T11:14:58.363863 - {"operation": "sqrt", "input": "{\"input\": 4}", "result": "2.0"}
+2025-08-12T11:14:58.509699 - {"operation": "sqrt", "input": "{\"input\": 4}", "result": "2.0"}
+2025-08-12T11:15:01.742315 - {"operation": "sqrt", "input": "{\"input\": 4}", "result": "2.0"}
+2025-08-12T11:15:02.092223 - {"operation": "sqrt", "input": "{\"input\": 4}", "result": "2.0"}
+2025-08-12T11:17:27.470821 - {"message": "Authentication failed for user: Antoniu"}
+2025-08-12T11:17:27.471290 - {"message": "User created successfully: Antoniu"}
+2025-08-12T11:17:27.471630 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
+2025-08-12T11:17:27.471986 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
+2025-08-12T11:17:27.472380 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
+2025-08-12T11:17:27.472730 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
+2025-08-12T11:17:27.473086 - {"operation": "fibonacci", "input": "{\"n\": 12}", "result": "144"}
+2025-08-12T11:17:27.473493 - {"operation": "fibonacci", "input": "{\"n\": 12}", "result": "144"}
+2025-08-12T11:17:27.473868 - {"operation": "pow", "input": "{\"base\": 12, \"exponent\": 23}", "result": "6.624737266949237e+24"}
+2025-08-12T11:17:27.474246 - {"operation": "pow", "input": "{\"base\": 12, \"exponent\": 23}", "result": "6.624737266949237e+24"}
+2025-08-12T11:17:27.475253 - {"operation": "pow", "input": "{\"base\": 12, \"exponent\": 23}", "result": "6.624737266949237e+24"}
+2025-08-12T11:17:27.475636 - {"operation": "pow", "input": "{\"base\": 12, \"exponent\": 23}", "result": "6.624737266949237e+24"}
+2025-08-12T11:17:27.475970 - {"operation": "pow", "input": "{\"base\": 12, \"exponent\": 23}", "result": "6.624737266949237e+24"}
+2025-08-12T11:17:27.476363 - {"operation": "log", "input": "{\"input\": 12, \"base\": 23}", "result": "0.7925087653372185"}
+2025-08-12T11:17:27.476711 - {"operation": "log", "input": "{\"input\": 12, \"base\": 23}", "result": "0.7925087653372185"}
+2025-08-12T11:17:27.477050 - {"operation": "log", "input": "{\"input\": 12, \"base\": 23}", "result": "0.7925087653372185"}
+2025-08-12T11:17:27.477407 - {"operation": "log", "input": "{\"input\": 12, \"base\": 23}", "result": "0.7925087653372185"}
+2025-08-12T11:17:27.477752 - {"operation": "log", "input": "{\"input\": 12, \"base\": 23}", "result": "0.7925087653372185"}
+2025-08-12T11:17:27.478082 - {"operation": "log", "input": "{\"input\": 12, \"base\": 23}", "result": "0.7925087653372185"}
+2025-08-12T11:17:27.478457 - {"operation": "log", "input": "{\"input\": 12, \"base\": 23}", "result": "0.7925087653372185"}
+2025-08-12T11:17:27.479156 - {"operation": "log", "input": "{\"input\": 2, \"base\": 23}", "result": "0.22106472945750374"}
+2025-08-12T11:17:27.479506 - {"operation": "log", "input": "{\"input\": 2, \"base\": 23}", "result": "0.22106472945750374"}
+2025-08-12T11:17:44.311321 - {"operation": "pow", "input": "{\"base\": 3, \"exponent\": 12}", "result": "531441.0"}
+2025-08-12T11:17:44.319031 - {"operation": "pow", "input": "{\"base\": 3, \"exponent\": 12}", "result": "531441.0"}
+2025-08-12T11:17:45.450546 - {"operation": "pow", "input": "{\"base\": 3, \"exponent\": 12}", "result": "531441.0"}

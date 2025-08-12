@@ -1,9 +1,10 @@
 import sqlite3
 
-conn = sqlite3.connect("../test.db")
+conn = sqlite3.connect("../info.db")
 cursor = conn.cursor()
 
 cursor.execute("SELECT * FROM operation_log")
+cursor.execute("SELECT * FROM users")
 rows = cursor.fetchall()
 
 for row in rows:

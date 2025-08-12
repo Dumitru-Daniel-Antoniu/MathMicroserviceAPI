@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker
 from models.models import Base, OperationLog
 from services.logging_utils import log_to_redis_stream
 
-DATABASE_URL = "sqlite+aiosqlite:///./test.db"
+DATABASE_URL = "sqlite+aiosqlite:///./info.db"
 
 engine = create_async_engine(DATABASE_URL, echo=True)
 SessionLocal: sessionmaker[AsyncSession] = sessionmaker(bind=engine,
