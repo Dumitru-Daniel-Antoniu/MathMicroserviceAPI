@@ -68,4 +68,4 @@ async def root(request: Request):
     else:
         return templates.TemplateResponse("login.html", {"request": request})
 
-Instrumentator().instrument(app)
+Instrumentator().instrument(app).expose(app)
