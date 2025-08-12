@@ -161,3 +161,94 @@
 2025-08-12T15:41:35.658165 - {"operation": "sqrt", "input": "{\"input\": 4000}", "result": "63.245553203367585"}
 2025-08-12T15:41:35.824941 - {"operation": "sqrt", "input": "{\"input\": 4000}", "result": "63.245553203367585"}
 2025-08-12T15:41:35.972033 - {"operation": "sqrt", "input": "{\"input\": 4000}", "result": "63.245553203367585"}
+2025-08-12T19:42:11.564109 - {"message": "User created successfully: Antoniu"}
+2025-08-12T19:42:25.162568 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T19:42:25.174611 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T20:27:42.233925 - {"message": "User created successfully: Antoniu"}
+2025-08-12T20:48:11.572873 - {"message": "User already exists: Antoniu"}
+2025-08-12T20:48:21.775244 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T20:48:21.791330 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T20:48:21.954037 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T20:48:22.090138 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T20:48:22.237195 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T20:48:22.370731 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T20:48:22.504273 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T20:48:22.652826 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T20:48:23.381840 - {"operation": "sqrt", "input": "{\"input\": 2}", "result": "1.4142135623730951"}
+2025-08-12T20:48:23.387922 - {"operation": "sqrt", "input": "{\"input\": 2}", "result": "1.4142135623730951"}
+2025-08-12T20:48:23.538716 - {"operation": "sqrt", "input": "{\"input\": 2}", "result": "1.4142135623730951"}
+2025-08-12T20:48:23.683269 - {"operation": "sqrt", "input": "{\"input\": 2}", "result": "1.4142135623730951"}
+2025-08-12T20:48:23.822037 - {"operation": "sqrt", "input": "{\"input\": 2}", "result": "1.4142135623730951"}
+2025-08-12T20:48:23.988710 - {"operation": "sqrt", "input": "{\"input\": 2}", "result": "1.4142135623730951"}
+2025-08-12T20:48:24.137410 - {"operation": "sqrt", "input": "{\"input\": 2}", "result": "1.4142135623730951"}
+2025-08-12T20:48:24.391082 - {"operation": "sqrt", "input": "{\"input\": 2}", "result": "1.4142135623730951"}
+2025-08-12T20:48:24.616069 - {"operation": "sqrt", "input": "{\"input\": 2}", "result": "1.4142135623730951"}
+2025-08-12T20:49:24.478711 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T20:49:24.485103 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T20:49:24.627600 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T20:49:24.797057 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T20:49:26.774562 - {"operation": "fibonacci", "input": "{\"n\": 2}", "result": "1"}
+2025-08-12T20:49:26.780381 - {"operation": "fibonacci", "input": "{\"n\": 2}", "result": "1"}
+2025-08-12T20:49:27.331251 - {"operation": "fibonacci", "input": "{\"n\": 2}", "result": "1"}
+2025-08-12T20:49:27.476621 - {"operation": "fibonacci", "input": "{\"n\": 2}", "result": "1"}
+2025-08-12T20:49:27.647074 - {"operation": "fibonacci", "input": "{\"n\": 2}", "result": "1"}
+2025-08-12T20:49:28.058312 - {"operation": "fibonacci", "input": "{\"n\": 2}", "result": "1"}
+2025-08-12T21:08:33.106751 - {"message": "User created successfully: Antoniu"}
+2025-08-12T21:08:52.289517 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T21:08:52.305827 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T21:08:52.446939 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T21:08:52.604999 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T21:08:52.726922 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T21:08:52.853997 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T21:08:52.980337 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T21:08:53.098607 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T21:08:53.223686 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T21:08:53.388855 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T21:08:53.527443 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T21:08:55.462896 - {"operation": "fibonacci", "input": "{\"n\": 23}", "result": "28657"}
+2025-08-12T21:08:55.473292 - {"operation": "fibonacci", "input": "{\"n\": 23}", "result": "28657"}
+2025-08-12T21:08:55.810781 - {"operation": "fibonacci", "input": "{\"n\": 23}", "result": "28657"}
+2025-08-12T21:08:55.961555 - {"operation": "fibonacci", "input": "{\"n\": 23}", "result": "28657"}
+2025-08-12T21:08:56.105389 - {"operation": "fibonacci", "input": "{\"n\": 23}", "result": "28657"}
+2025-08-12T21:08:56.262439 - {"operation": "fibonacci", "input": "{\"n\": 23}", "result": "28657"}
+2025-08-12T21:08:56.883299 - {"operation": "sqrt", "input": "{\"input\": 23}", "result": "4.795831523312719"}
+2025-08-12T21:08:56.889681 - {"operation": "sqrt", "input": "{\"input\": 23}", "result": "4.795831523312719"}
+2025-08-12T21:08:57.130082 - {"operation": "sqrt", "input": "{\"input\": 23}", "result": "4.795831523312719"}
+2025-08-12T21:08:57.408274 - {"operation": "sqrt", "input": "{\"input\": 23}", "result": "4.795831523312719"}
+2025-08-12T21:08:57.548396 - {"operation": "sqrt", "input": "{\"input\": 23}", "result": "4.795831523312719"}
+2025-08-12T21:08:57.682302 - {"operation": "sqrt", "input": "{\"input\": 23}", "result": "4.795831523312719"}
+2025-08-12T21:08:57.830841 - {"operation": "sqrt", "input": "{\"input\": 23}", "result": "4.795831523312719"}
+2025-08-12T21:08:57.985216 - {"operation": "sqrt", "input": "{\"input\": 23}", "result": "4.795831523312719"}
+2025-08-12T21:09:00.259050 - {"operation": "log", "input": "{\"input\": 23, \"base\": 2}", "result": "4.523561956057013"}
+2025-08-12T21:09:00.265406 - {"operation": "log", "input": "{\"input\": 23, \"base\": 2}", "result": "4.523561956057013"}
+2025-08-12T21:09:00.791973 - {"operation": "log", "input": "{\"input\": 23, \"base\": 2}", "result": "4.523561956057013"}
+2025-08-12T21:09:00.949101 - {"operation": "log", "input": "{\"input\": 23, \"base\": 2}", "result": "4.523561956057013"}
+2025-08-12T21:09:01.069951 - {"operation": "log", "input": "{\"input\": 23, \"base\": 2}", "result": "4.523561956057013"}
+2025-08-12T21:09:03.422530 - {"operation": "log", "input": "{\"input\": 23, \"base\": 3}", "result": "2.854049830200271"}
+2025-08-12T21:09:03.429351 - {"operation": "log", "input": "{\"input\": 23, \"base\": 3}", "result": "2.854049830200271"}
+2025-08-12T21:09:03.575906 - {"operation": "log", "input": "{\"input\": 23, \"base\": 3}", "result": "2.854049830200271"}
+2025-08-12T21:09:04.091082 - {"operation": "pow", "input": "{\"base\": 23, \"exponent\": 3}", "result": "12167.0"}
+2025-08-12T21:09:04.097218 - {"operation": "pow", "input": "{\"base\": 23, \"exponent\": 3}", "result": "12167.0"}
+2025-08-12T21:09:04.258715 - {"operation": "pow", "input": "{\"base\": 23, \"exponent\": 3}", "result": "12167.0"}
+2025-08-12T21:09:04.414123 - {"operation": "pow", "input": "{\"base\": 23, \"exponent\": 3}", "result": "12167.0"}
+2025-08-12T21:09:04.553029 - {"operation": "pow", "input": "{\"base\": 23, \"exponent\": 3}", "result": "12167.0"}
+2025-08-12T21:09:04.677769 - {"operation": "pow", "input": "{\"base\": 23, \"exponent\": 3}", "result": "12167.0"}
+2025-08-12T21:09:08.842831 - {"operation": "pow", "input": "{\"base\": 43, \"exponent\": 3}", "result": "79507.0"}
+2025-08-12T21:09:08.850949 - {"operation": "pow", "input": "{\"base\": 43, \"exponent\": 3}", "result": "79507.0"}
+2025-08-12T21:09:09.007763 - {"operation": "pow", "input": "{\"base\": 43, \"exponent\": 3}", "result": "79507.0"}
+2025-08-12T21:09:09.165362 - {"operation": "pow", "input": "{\"base\": 43, \"exponent\": 3}", "result": "79507.0"}
+2025-08-12T21:09:09.313195 - {"operation": "pow", "input": "{\"base\": 43, \"exponent\": 3}", "result": "79507.0"}
+2025-08-12T21:11:39.898503 - {"message": "User created successfully: Antoniu"}
+2025-08-12T21:11:42.549999 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T21:11:42.565494 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T21:11:42.667136 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T21:11:42.807617 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T21:11:42.930418 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T21:11:43.057117 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T21:11:43.191713 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T21:11:43.321959 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
+2025-08-12T21:11:46.501268 - {"operation": "pow", "input": "{\"base\": 3, \"exponent\": 4}", "result": "81.0"}
+2025-08-12T21:11:46.508994 - {"operation": "pow", "input": "{\"base\": 3, \"exponent\": 4}", "result": "81.0"}
+2025-08-12T21:11:46.660688 - {"operation": "pow", "input": "{\"base\": 3, \"exponent\": 4}", "result": "81.0"}
+2025-08-12T21:11:46.940292 - {"operation": "pow", "input": "{\"base\": 3, \"exponent\": 4}", "result": "81.0"}
+2025-08-12T21:11:47.070590 - {"operation": "pow", "input": "{\"base\": 3, \"exponent\": 4}", "result": "81.0"}
