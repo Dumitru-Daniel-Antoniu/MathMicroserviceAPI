@@ -6,22 +6,42 @@ services:
       - "8000:8000"
     volumes:
       - ./test.db:/app/test.db
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_STREAM=logs
+      - PROMETHEUS_MULTIPROC_DIR=/tmp
     depends_on:
       - prometheus
       - redis
-    environment:
-      - PROMETHEUS_MULTIPROC_DIR=/tmp
     networks:
       - monitoring
 
   redis:
-    image: redis:7
-    container_name: redis-cache
+    image: redis:latest
+    container_name: redis
     ports:
       - "6379:6379"
-    restart: always
+    restart: unless-stopped
     networks:
       - monitoring
+
+  consumer:
+    build:
+      context: .
+      dockerfile: /services/Dockerfile.consumer
+    container_name: consumer
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_STREAM=logs
+    networks:
+      - monitoring
+    volumes:
+      - ./services/redis_messages.log:/app/redis_messages.log
+    restart: unless-stopped
 
   prometheus:
     image: prom/prometheus:latest
@@ -60,6 +80,7 @@ services:
 
 networks:
   monitoring:
+    driver: bridge
 
 volumes:
   grafana-data:

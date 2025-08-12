@@ -17,6 +17,7 @@ async function handleLogin(event) {
     if (response.ok) {
         const data = await response.json();
         document.cookie = `access_token=${data.access_token}; path=/; SameSite=Lax`;
+        channel.postMessage('login');
         window.location.href = "/";
     } else {
         alert("Invalid username or password");
@@ -36,8 +37,11 @@ async function handleRegister(event) {
     if (response.ok) {
         const data = await response.json();
         document.cookie = `access_token=${data.access_token}; path=/; SameSite=Lax`;
+        channel.postMessage('login');
         window.location.href = "/";
     } else {
         alert("Registration failed");
     }
 }
+
+showForm('register');

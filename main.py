@@ -1,16 +1,20 @@
-import logging
+from http.client import HTTPException
+
 from fastapi import FastAPI, Request, Depends
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import HTMLResponse, RedirectResponse
-from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.templating import Jinja2Templates
 from prometheus_fastapi_instrumentator import Instrumentator
 from prometheus_client import generate_latest
 from contextlib import asynccontextmanager
+
+from redis.asyncio import Redis
+from starlette.responses import RedirectResponse
+
 from controllers.controllers import router
 from database.database import get_db
 from services.cache import init_cache
-from services.auth import verify_token
+from services.auth import verify_token, get_current_user
+from schemas.schemas import User
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -37,8 +41,14 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/statistics", tags=["Metrics"])
 async def statistics(request: Request):
-    statistics = generate_latest().decode()
+    try:
+        user = await get_current_user(request)
+    except Exception as e:
+        if "text/html" in request.headers.get("accept", ""):
+            return RedirectResponse(url="/")
+        raise e
 
+    statistics = generate_latest().decode()
     return templates.TemplateResponse(
         "statistics.html",
         {
@@ -50,14 +60,12 @@ async def statistics(request: Request):
 @app.get("/", tags=["Application"])
 async def root(request: Request):
     token = request.cookies.get("access_token")
-    print(f"Token from cookies: {token}")
     user = None
     if token:
-        user = verify_token(token)
-        print(f"User from token: {user}")
+        user = await verify_token(token)
     if user:
         return templates.TemplateResponse("menu.html", {"request": request, "user": user})
     else:
         return templates.TemplateResponse("login.html", {"request": request})
 
-Instrumentator().instrument(app).expose(app, endpoint="/metrics")
+Instrumentator().instrument(app)

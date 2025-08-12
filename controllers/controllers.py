@@ -1,31 +1,38 @@
 from fastapi import APIRouter, BackgroundTasks, HTTPException, Depends, status
-from fastapi.security import OAuth2PasswordRequestForm
 from fastapi.responses import RedirectResponse, JSONResponse
-from views.views import OperationView
-from fastapi import APIRouter, BackgroundTasks, HTTPException
-
 from schemas.schemas import PowRequest, FibonacciRequest, \
                             FactorialRequest, SqrtRequest, LogRequest, User, \
                             LoginRequest, LoginResponse
 from services.math_services import power, fibonacci, factorial, sqrt, logarithm
 from database.database import log_request
-from fastapi_cache.decorator import cache
-from services.auth import get_current_user, create_access_token, authenticate_user
+from services.auth import get_current_user, create_access_token, \
+                            authenticate_user, create_user
 import time
-from prometheus_client import Counter
 
 from views.views import OperationView
 from helpers.cache_helpers import handle_cached_operation
+from services.logging_utils import log_to_redis_stream
 
 router = APIRouter()
 
 @router.post("/login", response_model=LoginResponse, status_code=status.HTTP_200_OK, tags=["Authentication"])
-def login(form_data: LoginRequest):
-    user = authenticate_user(form_data.username, form_data.password)
+async def login(form_data: LoginRequest):
+    user = await authenticate_user(form_data.username, form_data.password)
     if not user:
         raise HTTPException(status_code=401, detail="Invalid credentials")
     access_token = create_access_token(data={"sub": user.username})
+    result = JSONResponse(
+        content={"access_token": access_token, "token_type": "bearer"}
+    )
+    result.set_cookie(key="access_token", value=access_token, httponly=True)
+    return result
 
+@router.post("/register", response_model=LoginResponse, status_code=status.HTTP_201_CREATED, tags=["Authentication"])
+async def register(form_data: LoginRequest):
+    user = await create_user(form_data.username, form_data.password)
+    if not user:
+        raise HTTPException(status_code=400, detail="User already exists")
+    access_token = create_access_token(data={"sub": user.username})
     result = JSONResponse(
         content={"access_token": access_token, "token_type": "bearer"}
     )
@@ -63,7 +70,6 @@ async def calculate_pow(
             lambda: power(request.base, request.exponent), float
         )
     except Exception as e:
-        print("Cache key builder error: ", e)
         raise HTTPException(status_code=400, detail=str(e))
 
 
@@ -133,3 +139,9 @@ async def calculate_factorial(request: FactorialRequest,
         )
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+
+@router.get("/test-redis")
+def test_redis():
+    log_to_redis_stream({"manual": "test", "source": "test-kafka route"})
+    time.sleep(1)  # Give some time for the message to be processed
+    return {"status": "test message sent"}

@@ -1,7 +1,6 @@
 let currentOperation = "";
 
 function clearInputs() {
-  console.log("Call of the function clear");
   document.getElementById('input1').value = '';
   document.getElementById('input2').value = '';
   document.getElementById('result').value = '';
@@ -9,7 +8,6 @@ function clearInputs() {
 }
 
 async function submitData(operation) {
-  console.log("An operation taken");
   currentOperation = operation;
 
   const val1 = document.getElementById('input1').value;
@@ -37,8 +35,6 @@ async function submitData(operation) {
   let url = "";
   let numbers = {};
 
-  console.log("URL assignment");
-
   switch(currentOperation) {
     case "factorial":
       url = "/factorial";
@@ -65,16 +61,12 @@ async function submitData(operation) {
       return;
   }
 
-  console.log("Switch made");
-
   try {
     const res = await fetch(url, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(numbers)
     });
-
-    console.log("Fetch");
 
     if(!res.ok) {
       const err = await res.json();
@@ -96,8 +88,6 @@ async function submitData(operation) {
 function isValidInteger(value) {
   if(value === "") return false;
   const parsed = Number(value);
-  console.log(Number.isInteger(parsed));
-  console.log(!isNaN(parsed));
   return Number.isInteger(parsed) && !isNaN(parsed);
 }
 
@@ -106,12 +96,12 @@ async function getUserInfo() {
       const res = await fetch("/userinfo", {
         method: "GET",
         credentials: "include"
-      });  // Backend should return user data
+      });
       if (res.ok) {
           const data = await res.json();
           document.getElementById("username").innerText = data.username;
       } else {
-          window.location.href = "/";  // Redirect to login if not authorized
+          window.location.href = "/";
       }
   } catch (err) {
       console.error("User info fetch failed", err);
@@ -120,10 +110,9 @@ async function getUserInfo() {
 }
 
 function logout() {
-    // Clear the cookie manually
     document.cookie = "access_token=; path=/; Max-Age=0;";
-    window.location.href = "/logout";  // Or simply reload to login screen
+    channel.postMessage('logout');
+    window.location.href = "/logout";
 }
 
-// Fetch user info on load
 getUserInfo();

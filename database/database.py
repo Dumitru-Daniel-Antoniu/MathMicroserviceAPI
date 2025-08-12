@@ -1,8 +1,9 @@
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker
 from models.models import Base, OperationLog
+from services.logging_utils import log_to_redis_stream
 
-DATABASE_URL = "sqlite+aiosqlite:///./test.db"
+DATABASE_URL = "sqlite+aiosqlite:///./info.db"
 
 engine = create_async_engine(DATABASE_URL, echo=True)
 SessionLocal: sessionmaker[AsyncSession] = sessionmaker(bind=engine,
@@ -10,7 +11,6 @@ SessionLocal: sessionmaker[AsyncSession] = sessionmaker(bind=engine,
                                                         expire_on_commit=False)
 
 
-# Initiates database connection
 async def get_db():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
@@ -32,4 +32,22 @@ async def log_request(operation: str, input_data: dict, result: float):
         "input": input_data,
         "result": result
     }
-    print(f"Logged to Kafka: {log_entry}")
+    print(f"Logged to Redis Stream: {log_entry}")
+    log_to_redis_stream(log_entry)
+
+# Function to create a new user
+async def log_create_user(username: str, password: str):
+    async with SessionLocal() as session:
+        new_user = {
+            "username": username,
+            "password": password
+        }
+        session.add(new_user)
+        await session.commit()
+
+    log_entry = {
+        "username": username,
+        "password": password
+    }
+    print(f"User creation logged to Redis Stream: {log_entry}")
+    log_to_redis_stream(log_entry)
