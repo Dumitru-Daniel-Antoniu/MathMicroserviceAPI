@@ -1,17 +1,13 @@
 from fastapi import APIRouter, BackgroundTasks, HTTPException, Depends, status
-from fastapi.security import OAuth2PasswordRequestForm
 from fastapi.responses import RedirectResponse, JSONResponse
-from views.views import OperationView
 from schemas.schemas import PowRequest, FibonacciRequest, \
                             FactorialRequest, SqrtRequest, LogRequest, User, \
                             LoginRequest, LoginResponse
 from services.math_services import power, fibonacci, factorial, sqrt, logarithm
 from database.database import log_request
-from fastapi_cache.decorator import cache
 from services.auth import get_current_user, create_access_token, \
                             authenticate_user, create_user
 import time
-from prometheus_client import Counter
 
 from views.views import OperationView
 from helpers.cache_helpers import handle_cached_operation
@@ -25,7 +21,6 @@ async def login(form_data: LoginRequest):
     if not user:
         raise HTTPException(status_code=401, detail="Invalid credentials")
     access_token = create_access_token(data={"sub": user.username})
-
     result = JSONResponse(
         content={"access_token": access_token, "token_type": "bearer"}
     )

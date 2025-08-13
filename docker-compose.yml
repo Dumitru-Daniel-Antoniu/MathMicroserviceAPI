@@ -19,12 +19,29 @@ services:
 
   redis:
     image: redis:latest
-    container_name: redis-container-yml
+    container_name: redis
     ports:
       - "6379:6379"
     restart: unless-stopped
     networks:
       - monitoring
+
+  consumer:
+    build:
+      context: .
+      dockerfile: /services/Dockerfile.consumer
+    container_name: consumer
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_STREAM=logs
+    networks:
+      - monitoring
+    volumes:
+      - ./services/redis_messages.log:/app/redis_messages.log
+    restart: unless-stopped
 
   prometheus:
     image: prom/prometheus:latest
@@ -63,6 +80,7 @@ services:
 
 networks:
   monitoring:
+    driver: bridge
 
 volumes:
   grafana-data:

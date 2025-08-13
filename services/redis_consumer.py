@@ -1,54 +1,64 @@
 # kafka_consumer.py
-from datetime import datetime
 import json
 import os
 import redis
+import logging
+from datetime import datetime
 
-REDIS_STREAM = os.getenv("REDIS_STREAM", "logs")
-GROUP_NAME = "log_reader_group"
-CONSUMER_NAME = "log_consumer_1"
-LOG_FILE = "redis_messages.log"
+def consumer():
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s %(message)s')
 
-redis_client = redis.Redis(
-    host=os.getenv("REDIS_HOST", "localhost"),
-    port=int(os.getenv("REDIS_PORT", 6379)),
-    decode_responses=True
-)
+    REDIS_STREAM = os.getenv("REDIS_STREAM", "logs")
+    GROUP_NAME = "log_reader_group"
+    CONSUMER_NAME = "log_consumer_1"
+    LOG_FILE = "redis_messages.log"
 
-try:
-    redis_client.xgroup_create(
-        REDIS_STREAM,
-        GROUP_NAME,
-        id='0',
-        mkstream=True
+    redis_client = redis.Redis(
+        host=os.getenv("REDIS_HOST", "redis"),
+        port=int(os.getenv("REDIS_PORT", 6379)),
+        decode_responses=True
     )
-except redis.exceptions.ResponseError as e:
-    if "BUSYGROUP" in str(e):
-        print("Consumer group already exists.")
-    else:
-        raise
 
-with open(LOG_FILE, "a") as f:
     try:
-        while True:
-            response = redis_client.xreadgroup(
-                GROUP_NAME,
-                CONSUMER_NAME,
-                {REDIS_STREAM: '>'},
-                count=10,
-                block=5000
-            )
+        redis_client.xgroup_create(
+            REDIS_STREAM,
+            GROUP_NAME,
+            id='0',
+            mkstream=True
+        )
+    except redis.exceptions.ResponseError as e:
+        if "BUSYGROUP" in str(e):
+            logging.info("Consumer group already exists.")
+        else:
+            raise
 
-            for stream, messages in response:
-                for msg_id, msg_data in messages:
-                    log_entry = f"{datetime.now().isoformat()} - {json.dumps(msg_data)}"
-                    print("🔔", log_entry)
-                    f.write(log_entry + "\n")
-                    # Acknowledge processing
-                    redis_client.xack(
-                        REDIS_STREAM,
-                        GROUP_NAME,
-                        msg_id
-                    )
-    except KeyboardInterrupt:
-        print("🛑 Stopping consumer...")
+    with open(LOG_FILE, "a") as f:
+        try:
+            while True:
+                response = redis_client.xreadgroup(
+                    GROUP_NAME,
+                    CONSUMER_NAME,
+                    {REDIS_STREAM: '>'},
+                    count=10,
+                    block=5000
+                )
+
+                logging.info("Data processed")
+
+                for stream, messages in response:
+                    for msg_id, msg_data in messages:
+                        log_entry = f"{datetime.now().isoformat()} - {json.dumps(msg_data)}"
+                        logging.info(log_entry)
+                        f.write(log_entry + "\n")
+                        f.flush()
+                        redis_client.xack(
+                            REDIS_STREAM,
+                            GROUP_NAME,
+                            msg_id
+                        )
+
+        except KeyboardInterrupt:
+            logging.info("Stopping consumer...")
+
+if __name__ == "__main__":
+    consumer()
