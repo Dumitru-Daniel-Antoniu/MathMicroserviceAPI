@@ -5,12 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef5aea33-d351-4a0c-a039-a7705a122d4e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/services/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/test_math_functions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/test_math_operation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/test_redis_logging.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/test_registration_and_login.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/PythonHomework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PythonHomework.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/controllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/controllers.py" afterDir="false" />
