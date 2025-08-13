@@ -24,7 +24,13 @@ async def login(form_data: LoginRequest):
     result = JSONResponse(
         content={"access_token": access_token, "token_type": "bearer"}
     )
-    result.set_cookie(key="access_token", value=access_token, httponly=True)
+    result.set_cookie(
+        key="access_token",
+        value=access_token,
+        httponly=True,
+        secure=True,
+        samesite='lax'
+    )
     return result
 
 @router.post("/register", response_model=LoginResponse, status_code=status.HTTP_201_CREATED, tags=["Authentication"])
@@ -36,7 +42,13 @@ async def register(form_data: LoginRequest):
     result = JSONResponse(
         content={"access_token": access_token, "token_type": "bearer"}
     )
-    result.set_cookie(key="access_token", value=access_token, httponly=True)
+    result.set_cookie(
+        key="access_token",
+        value=access_token,
+        httponly=True,
+        secure=True,
+        samesite='lax'
+    )
     return result
 
 @router.get("/logout", response_model=OperationView, tags=["Authentication"])
@@ -63,8 +75,8 @@ async def calculate_pow(
     try:
         key = f"pow:{request.base}:{request.exponent}"
         endpoint = f"/pow?base={request.base}&exponent={request.exponent}"
-        result = power(request.base, request.exponent)
-        await log_request("pow", request.model_dump(), result)
+        # result = power(request.base, request.exponent)
+        # await log_request("pow", request.model_dump(), result)
         return await handle_cached_operation(
             "pow", key, endpoint, request, background_tasks,
             lambda: power(request.base, request.exponent), float
@@ -80,8 +92,8 @@ async def calculate_sqrt(request: SqrtRequest,
     try:
         key = f"sqrt:{request.input}"
         endpoint = f"/sqrt?input={request.input}"
-        result = sqrt(request.input)
-        await log_request("sqrt", request.model_dump(), result)
+        # result = sqrt(request.input)
+        # await log_request("sqrt", request.model_dump(), result)
         return await handle_cached_operation(
             "sqrt", key, endpoint, request, background_tasks,
             lambda: sqrt(request.input), float
@@ -97,8 +109,8 @@ async def calculate_log(request: LogRequest,
     try:
         key = f"log:{request.input}:{request.base}"
         endpoint = f"/log?input={request.input}&base={request.base}"
-        result = logarithm(request.input, request.base)
-        await log_request("log", request.model_dump(), result)
+        # result = logarithm(request.input, request.base)
+        # await log_request("log", request.model_dump(), result)
         return await handle_cached_operation(
             "log", key, endpoint, request, background_tasks,
             lambda: logarithm(request.input, request.base), float
@@ -114,8 +126,8 @@ async def calculate_fibonacci(request: FibonacciRequest,
     try:
         key = f"fibonacci:{request.n}"
         endpoint = f"/fibonacci?n={request.n}"
-        result = fibonacci(request.n)
-        await log_request("fibonacci", request.model_dump(), result)
+        # result = fibonacci(request.n)
+        # await log_request("fibonacci", request.model_dump(), result)
         return await handle_cached_operation(
             "fibonacci", key, endpoint, request, background_tasks,
             lambda: fibonacci(request.n), float
@@ -131,8 +143,8 @@ async def calculate_factorial(request: FactorialRequest,
     try:
         key = f"factorial:{request.n}"
         endpoint = f"/factorial?n={request.n}"
-        result = factorial(request.n)
-        await log_request("factorial", request.model_dump(), result)
+        # result = factorial(request.n)
+        # await log_request("factorial", request.model_dump(), result)
         return await handle_cached_operation(
             "factorial", key, endpoint, request, background_tasks,
             lambda: factorial(request.n), float

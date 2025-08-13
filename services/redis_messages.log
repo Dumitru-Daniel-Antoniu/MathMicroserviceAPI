@@ -161,3 +161,26 @@
 2025-08-12T15:41:35.658165 - {"operation": "sqrt", "input": "{\"input\": 4000}", "result": "63.245553203367585"}
 2025-08-12T15:41:35.824941 - {"operation": "sqrt", "input": "{\"input\": 4000}", "result": "63.245553203367585"}
 2025-08-12T15:41:35.972033 - {"operation": "sqrt", "input": "{\"input\": 4000}", "result": "63.245553203367585"}
+2025-08-13T11:29:34.199235 - {"message": "User already exists: testuser"}
+2025-08-13T11:29:34.199771 - {"message": "User created successfully: testuser16"}
+2025-08-13T11:29:34.200634 - {"message": "User already exists: testuser"}
+2025-08-13T11:29:34.201334 - {"message": "User already exists: testuser"}
+2025-08-13T11:29:34.203918 - {"message": "User already exists: testuser16"}
+2025-08-13T11:29:34.206129 - {"message": "User created successfully: testuser17"}
+2025-08-13T11:33:39.878524 - {"message": "Authentication failed for user: testuser"}
+2025-08-13T11:33:54.379029 - {"message": "User created successfully: testuser"}
+2025-08-13T11:34:04.500509 - {"operation": "factorial", "input": "{\"n\": 11}", "result": "39916800"}
+2025-08-13T11:34:04.512330 - {"operation": "factorial", "input": "{\"n\": 11}", "result": "39916800"}
+2025-08-13T11:34:10.200112 - {"operation": "fibonacci", "input": "{\"n\": 11}", "result": "89"}
+2025-08-13T11:34:10.206190 - {"operation": "fibonacci", "input": "{\"n\": 11}", "result": "89"}
+2025-08-13T11:34:11.789739 - {"operation": "sqrt", "input": "{\"input\": 11}", "result": "3.3166247903554"}
+2025-08-13T11:34:11.796766 - {"operation": "sqrt", "input": "{\"input\": 11}", "result": "3.3166247903554"}
+2025-08-13T11:35:11.377082 - {"operation": "factorial", "input": "{\"n\": 11}", "result": "39916800"}
+2025-08-13T11:35:11.383337 - {"operation": "factorial", "input": "{\"n\": 11}", "result": "39916800"}
+2025-08-13T11:36:43.410614 - {"operation": "log", "input": "{\"input\": 11, \"base\": 2}", "result": "3.4594316186372978"}
+2025-08-13T11:36:43.417678 - {"operation": "log", "input": "{\"input\": 11, \"base\": 2}", "result": "3.4594316186372978"}
+2025-08-13T11:39:14.554387 - {"message": "Authentication failed for user: testuser"}
+2025-08-13T11:39:25.071635 - {"message": "User created successfully: testuser"}
+2025-08-13T11:39:31.234885 - {"operation": "factorial", "input": "{\"n\": 9}", "result": "362880"}
+2025-08-13T11:39:40.184964 - {"operation": "sqrt", "input": "{\"input\": 9}", "result": "3.0"}
+2025-08-13T11:39:44.429895 - {"operation": "fibonacci", "input": "{\"n\": 9}", "result": "34"}

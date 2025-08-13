@@ -32,8 +32,11 @@ async def log_request(operation: str, input_data: dict, result: float):
         "input": input_data,
         "result": result
     }
-    print(f"Logged to Redis Stream: {log_entry}")
-    log_to_redis_stream(log_entry)
+    try:
+        log_to_redis_stream(log_entry)
+        print(f"Logged to Redis Stream: {log_entry}")
+    except Exception as e:
+        print(f"Error logging to Redis Stream: {e}")
 
 # Function to create a new user
 async def log_create_user(username: str, password: str):
@@ -49,5 +52,8 @@ async def log_create_user(username: str, password: str):
         "username": username,
         "password": password
     }
-    print(f"User creation logged to Redis Stream: {log_entry}")
-    log_to_redis_stream(log_entry)
+    try:
+        log_to_redis_stream(log_entry)
+        print(f"User creation logged to Redis Stream: {log_entry}")
+    except Exception as e:
+        print(f"Error logging to Redis Stream: {e}")
