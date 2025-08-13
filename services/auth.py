@@ -104,4 +104,4 @@ async def verify_token(token: str):
     except jwt.ExpiredSignatureError:
         return RedirectResponse(url="/logout")
     except jwt.InvalidTokenError:
-        raise HTTPException(status_code=401, detail="Invalid token")
+        return RedirectResponse(url="/logout")

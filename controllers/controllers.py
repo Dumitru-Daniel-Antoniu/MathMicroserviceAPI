@@ -1,4 +1,4 @@
-from fastapi import APIRouter, BackgroundTasks, HTTPException, Depends, status
+from fastapi import APIRouter, BackgroundTasks, HTTPException, Depends, Request, status
 from fastapi.responses import RedirectResponse, JSONResponse
 from schemas.schemas import PowRequest, FibonacciRequest, \
                             FactorialRequest, SqrtRequest, LogRequest, User, \
@@ -45,14 +45,14 @@ async def logout():
     response.delete_cookie("access_token")
     return response
 
-@router.get("/userinfo", tags=["User Info"])
-def get_user_info(user: User = Depends(get_current_user)):
-    return JSONResponse(
-        content={
-            "username": user.username,
-            "disabled": user.disabled
-        }
-    )
+# @router.get("/userinfo", tags=["User Info"])
+# def get_user_info(user: User = Depends(get_current_user)):
+#     return JSONResponse(
+#         content={
+#             "username": user.username,
+#             "disabled": user.disabled
+#         }
+#     )
 
 @router.post("/pow", response_model=OperationView, tags=["Mathematical Operations"])
 async def calculate_pow(
@@ -139,9 +139,3 @@ async def calculate_factorial(request: FactorialRequest,
         )
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
-
-@router.get("/test-redis")
-def test_redis():
-    log_to_redis_stream({"manual": "test", "source": "test-kafka route"})
-    time.sleep(1)  # Give some time for the message to be processed
-    return {"status": "test message sent"}

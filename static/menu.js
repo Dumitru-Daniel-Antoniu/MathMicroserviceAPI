@@ -91,28 +91,26 @@ function isValidInteger(value) {
   return Number.isInteger(parsed) && !isNaN(parsed);
 }
 
-async function getUserInfo() {
-  try {
-      const res = await fetch("/userinfo", {
-        method: "GET",
-        credentials: "include"
-      });
-      if (res.ok) {
-          const data = await res.json();
-          document.getElementById("username").innerText = data.username;
-      } else {
-          window.location.href = "/";
-      }
-  } catch (err) {
-      console.error("User info fetch failed", err);
-      window.location.href = "/";
-  }
-}
+//async function getUserInfo() {
+//  try {
+//      const res = await fetch("/userinfo", {
+//        method: "GET",
+//        credentials: "include"
+//      });
+//      if (res.ok) {
+//          const data = await res.json();
+//          document.getElementById("username").innerText = data.username;
+//      } else {
+//          window.location.href = "/";
+//      }
+//  } catch (err) {
+//      console.error("User info fetch failed", err);
+//      window.location.href = "/";
+//  }
+//}
 
 function logout() {
     document.cookie = "access_token=; path=/; Max-Age=0;";
     channel.postMessage('logout');
     window.location.href = "/logout";
 }
-
-getUserInfo();
