@@ -54,3 +54,36 @@
 2025-08-13T15:04:01.947713 - {"method": "POST", "path": "/fibonacci?n=1000", "payload": "{\"operation\": \"fibonacci\", \"input\": \"{'n': 1000}\", \"result\": 43466557686937456435688527675040625802564660517371780402481729089536555417949051890403879840079255169295922593080322634775209689623239873322471161642996440906533187938298969649928516003704476137795166849228875}"}
 2025-08-13T15:04:16.555259 - {"method": "POST", "path": "/fibonacci?n=100", "payload": "{\"operation\": \"fibonacci\", \"input\": \"{'n': 100}\", \"result\": 354224848179261915075}"}
 2025-08-13T15:04:53.012173 - {"method": "GET", "path": "/logout"}
+2025-08-13T19:59:19.005179 - {"message": "User already exists: Antoniu"}
+2025-08-13T19:59:25.662213 - {"method": "POST", "path": "/login", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T19:59:25.725820 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T19:59:27.966219 - {"method": "POST", "path": "/factorial?n=12", "payload": "{\"operation\": \"factorial\", \"input\": \"{'n': 12}\", \"result\": 479001600}"}
+2025-08-13T19:59:28.871444 - {"method": "POST", "path": "/fibonacci?n=12", "payload": "{\"operation\": \"fibonacci\", \"input\": \"{'n': 12}\", \"result\": 144}"}
+2025-08-13T20:00:23.525548 - {"method": "POST", "path": "/pow?base=12&exponent=43", "payload": "{\"operation\": \"pow\", \"input\": \"{'base': 12, 'exponent': 43}\", \"result\": 2.539765269450581e+46}"}
+2025-08-13T20:00:29.459998 - {"method": "POST", "path": "/factorial?n=32", "payload": "{\"operation\": \"factorial\", \"input\": \"{'n': 32}\", \"result\": 263130836933693530167218012160000000}"}
+2025-08-13T20:00:31.155796 - {"method": "POST", "path": "/fibonacci?n=32", "payload": "{\"operation\": \"fibonacci\", \"input\": \"{'n': 32}\", \"result\": 2178309}"}
+2025-08-13T20:02:44.188413 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T20:02:47.460555 - {"method": "POST", "path": "/factorial?n=12", "payload": "{\"operation\": \"factorial\", \"input\": \"{'n': 12}\", \"result\": 479001600}"}
+2025-08-13T20:02:48.098804 - {"method": "POST", "path": "/fibonacci?n=12", "payload": "{\"operation\": \"fibonacci\", \"input\": \"{'n': 12}\", \"result\": 144}"}
+2025-08-13T20:02:54.100015 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T20:02:58.525276 - {"method": "GET", "path": "/logout"}
+2025-08-13T20:03:05.467539 - {"message": "User created successfully: Mihai"}
+2025-08-13T20:03:05.468493 - {"method": "POST", "path": "/register", "payload": "{\"username\": \"Mihai\", \"disabled\": false}"}
+2025-08-13T20:03:05.497824 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Mihai\", \"disabled\": false}"}
+2025-08-13T20:03:10.909730 - {"method": "POST", "path": "/fibonacci?n=32", "payload": "{\"operation\": \"fibonacci\", \"input\": \"{'n': 32}\", \"result\": 2178309}"}
+2025-08-13T20:03:13.875855 - {"method": "POST", "path": "/pow?base=32&exponent=4", "payload": "{\"operation\": \"pow\", \"input\": \"{'base': 32, 'exponent': 4}\", \"result\": 1048576.0}"}
+2025-08-13T20:03:15.878961 - {"method": "GET", "path": "/logout"}
+2025-08-13T20:05:14.751891 - {"method": "POST", "path": "/login", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T20:05:14.802299 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T20:05:16.539894 - {"method": "POST", "path": "/factorial?n=12", "payload": "{\"operation\": \"factorial\", \"input\": \"{'n': 12}\", \"result\": 479001600}"}
+2025-08-13T20:05:17.125161 - {"method": "POST", "path": "/fibonacci?n=12", "payload": "{\"operation\": \"fibonacci\", \"input\": \"{'n': 12}\", \"result\": 144}"}
+2025-08-13T20:05:23.817320 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T20:05:25.910860 - {"method": "POST", "path": "/sqrt?n=12", "payload": "{\"operation\": \"sqrt\", \"input\": \"{'n': 12}\", \"result\": 3.4641016151377544}"}
+2025-08-13T20:05:30.853322 - {"method": "POST", "path": "/log?n=12&base=32", "payload": "{\"operation\": \"log\", \"input\": \"{'n': 12, 'base': 32}\", \"result\": 0.7169925001442312}"}
+2025-08-13T20:05:31.297217 - {"method": "POST", "path": "/pow?base=12&exponent=32", "payload": "{\"operation\": \"pow\", \"input\": \"{'base': 12, 'exponent': 32}\", \"result\": 3.418218918716685e+34}"}
+2025-08-13T20:05:36.867731 - {"method": "POST", "path": "/log?n=12&base=3", "payload": "{\"operation\": \"log\", \"input\": \"{'n': 12, 'base': 3}\", \"result\": 2.2618595071429146}"}
+2025-08-13T20:05:37.409175 - {"method": "POST", "path": "/pow?base=12&exponent=3", "payload": "{\"operation\": \"pow\", \"input\": \"{'base': 12, 'exponent': 3}\", \"result\": 1728.0}"}
+2025-08-13T20:05:39.229354 - {"method": "GET", "path": "/logout"}
+2025-08-13T20:10:38.325215 - {"method": "POST", "path": "/login", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T20:10:38.371669 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T20:10:44.159683 - {"method": "POST", "path": "/sqrt?n=543", "payload": "{\"operation\": \"sqrt\", \"input\": \"{'n': 543}\", \"result\": 23.302360395462088}"}

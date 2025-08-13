@@ -82,7 +82,7 @@ async def calculate_sqrt(request: SqrtRequest,
                          user: User = Depends(get_current_user)):
     try:
         key = f"sqrt:{request.n}"
-        endpoint = f"/sqrt?input={request.n}"
+        endpoint = f"/sqrt?n={request.n}"
         return await handle_cached_operation(
             "sqrt", key, endpoint, request, background_tasks,
             lambda: sqrt(request.n), float
@@ -97,7 +97,7 @@ async def calculate_log(request: LogRequest,
                         user: User = Depends(get_current_user)):
     try:
         key = f"log:{request.n}:{request.base}"
-        endpoint = f"/log?input={request.n}&base={request.base}"
+        endpoint = f"/log?n={request.n}&base={request.base}"
         return await handle_cached_operation(
             "log", key, endpoint, request, background_tasks,
             lambda: logarithm(request.n, request.base), float

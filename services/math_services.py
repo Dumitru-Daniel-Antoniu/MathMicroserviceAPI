@@ -1,13 +1,13 @@
 import math
 
-def power(base: float, exponent: float) -> float:
+def power(base: int, exponent: int) -> float:
     """Calculate the power of a number."""
     if base > 100 or exponent > 100:
         raise ValueError("Numbers must be <= 100")
     return math.pow(base, exponent)
 
 
-def sqrt(n: float) -> float:
+def sqrt(n: int) -> float:
     """Calculate the square root of a number."""
     if n < 0:
         raise ValueError("Number must be positive")
@@ -16,7 +16,7 @@ def sqrt(n: float) -> float:
     return math.sqrt(n)
 
 
-def logarithm(n: float, base: float = 10) -> float:
+def logarithm(n: int, base: int = 10) -> float:
     """Calculate the logarithm of a number with a specified base."""
     if n <= 0:
         raise ValueError("Number must be > 0")

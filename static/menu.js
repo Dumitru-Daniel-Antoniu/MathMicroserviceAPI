@@ -46,7 +46,7 @@ async function submitData(operation) {
       break;
     case "logarithm":
       url = "/log";
-      numbers = {input: parseInt(val1), base: parseInt(val2)};
+      numbers = {n: parseInt(val1), base: parseInt(val2)};
       break;
     case "power":
       url = "/pow";
@@ -54,7 +54,7 @@ async function submitData(operation) {
       break;
     case "sqrt":
       url = "/sqrt";
-      numbers = {input: parseInt(val1)};
+      numbers = {n: parseInt(val1)};
       break;
     default:
       resultBox.value = "Invalid operation";
