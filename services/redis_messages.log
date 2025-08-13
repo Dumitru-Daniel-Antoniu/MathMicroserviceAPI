@@ -1,254 +1,56 @@
-2025-08-12T11:14:31.887844 - {"message": "User created successfully: Antoniu"}
-2025-08-12T11:14:31.888413 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
-2025-08-12T11:14:31.888812 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
-2025-08-12T11:14:31.889159 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
-2025-08-12T11:14:31.889471 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
-2025-08-12T11:14:31.889810 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
-2025-08-12T11:14:31.890174 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
-2025-08-12T11:14:31.890579 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
-2025-08-12T11:14:31.890943 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
-2025-08-12T11:14:57.419808 - {"operation": "sqrt", "input": "{\"input\": 4}", "result": "2.0"}
-2025-08-12T11:14:57.427120 - {"operation": "sqrt", "input": "{\"input\": 4}", "result": "2.0"}
-2025-08-12T11:14:57.743486 - {"operation": "sqrt", "input": "{\"input\": 4}", "result": "2.0"}
-2025-08-12T11:14:57.883347 - {"operation": "sqrt", "input": "{\"input\": 4}", "result": "2.0"}
-2025-08-12T11:14:58.199291 - {"operation": "sqrt", "input": "{\"input\": 4}", "result": "2.0"}
-2025-08-12T11:14:58.363863 - {"operation": "sqrt", "input": "{\"input\": 4}", "result": "2.0"}
-2025-08-12T11:14:58.509699 - {"operation": "sqrt", "input": "{\"input\": 4}", "result": "2.0"}
-2025-08-12T11:15:01.742315 - {"operation": "sqrt", "input": "{\"input\": 4}", "result": "2.0"}
-2025-08-12T11:15:02.092223 - {"operation": "sqrt", "input": "{\"input\": 4}", "result": "2.0"}
-2025-08-12T11:17:27.470821 - {"message": "Authentication failed for user: Antoniu"}
-2025-08-12T11:17:27.471290 - {"message": "User created successfully: Antoniu"}
-2025-08-12T11:17:27.471630 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
-2025-08-12T11:17:27.471986 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
-2025-08-12T11:17:27.472380 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
-2025-08-12T11:17:27.472730 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
-2025-08-12T11:17:27.473086 - {"operation": "fibonacci", "input": "{\"n\": 12}", "result": "144"}
-2025-08-12T11:17:27.473493 - {"operation": "fibonacci", "input": "{\"n\": 12}", "result": "144"}
-2025-08-12T11:17:27.473868 - {"operation": "pow", "input": "{\"base\": 12, \"exponent\": 23}", "result": "6.624737266949237e+24"}
-2025-08-12T11:17:27.474246 - {"operation": "pow", "input": "{\"base\": 12, \"exponent\": 23}", "result": "6.624737266949237e+24"}
-2025-08-12T11:17:27.475253 - {"operation": "pow", "input": "{\"base\": 12, \"exponent\": 23}", "result": "6.624737266949237e+24"}
-2025-08-12T11:17:27.475636 - {"operation": "pow", "input": "{\"base\": 12, \"exponent\": 23}", "result": "6.624737266949237e+24"}
-2025-08-12T11:17:27.475970 - {"operation": "pow", "input": "{\"base\": 12, \"exponent\": 23}", "result": "6.624737266949237e+24"}
-2025-08-12T11:17:27.476363 - {"operation": "log", "input": "{\"input\": 12, \"base\": 23}", "result": "0.7925087653372185"}
-2025-08-12T11:17:27.476711 - {"operation": "log", "input": "{\"input\": 12, \"base\": 23}", "result": "0.7925087653372185"}
-2025-08-12T11:17:27.477050 - {"operation": "log", "input": "{\"input\": 12, \"base\": 23}", "result": "0.7925087653372185"}
-2025-08-12T11:17:27.477407 - {"operation": "log", "input": "{\"input\": 12, \"base\": 23}", "result": "0.7925087653372185"}
-2025-08-12T11:17:27.477752 - {"operation": "log", "input": "{\"input\": 12, \"base\": 23}", "result": "0.7925087653372185"}
-2025-08-12T11:17:27.478082 - {"operation": "log", "input": "{\"input\": 12, \"base\": 23}", "result": "0.7925087653372185"}
-2025-08-12T11:17:27.478457 - {"operation": "log", "input": "{\"input\": 12, \"base\": 23}", "result": "0.7925087653372185"}
-2025-08-12T11:17:27.479156 - {"operation": "log", "input": "{\"input\": 2, \"base\": 23}", "result": "0.22106472945750374"}
-2025-08-12T11:17:27.479506 - {"operation": "log", "input": "{\"input\": 2, \"base\": 23}", "result": "0.22106472945750374"}
-2025-08-12T11:17:44.311321 - {"operation": "pow", "input": "{\"base\": 3, \"exponent\": 12}", "result": "531441.0"}
-2025-08-12T11:17:44.319031 - {"operation": "pow", "input": "{\"base\": 3, \"exponent\": 12}", "result": "531441.0"}
-2025-08-12T11:17:45.450546 - {"operation": "pow", "input": "{\"base\": 3, \"exponent\": 12}", "result": "531441.0"}
-2025-08-12T14:46:25.858364 - {"message": "User created successfully: Antoniu"}
-2025-08-12T14:46:27.787722 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
-2025-08-12T14:46:28.288735 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
-2025-08-12T14:46:28.567457 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
-2025-08-12T14:46:28.849855 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
-2025-08-12T14:46:29.138954 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
-2025-08-12T14:46:29.442492 - {"operation": "factorial", "input": "{\"n\": 12}", "result": "479001600"}
-2025-08-12T14:46:38.387226 - {"operation": "sqrt", "input": "{\"input\": 12}", "result": "3.4641016151377544"}
-2025-08-12T14:46:38.543262 - {"operation": "sqrt", "input": "{\"input\": 12}", "result": "3.4641016151377544"}
-2025-08-12T14:46:38.801517 - {"operation": "sqrt", "input": "{\"input\": 12}", "result": "3.4641016151377544"}
-2025-08-12T14:46:39.064252 - {"operation": "sqrt", "input": "{\"input\": 12}", "result": "3.4641016151377544"}
-2025-08-12T14:46:43.166140 - {"operation": "fibonacci", "input": "{\"n\": 3}", "result": "2"}
-2025-08-12T14:46:43.447796 - {"operation": "fibonacci", "input": "{\"n\": 3}", "result": "2"}
-2025-08-12T15:25:00.585884 - {"message": "User created successfully: Antoniu"}
-2025-08-12T15:25:05.728413 - {"operation": "factorial", "input": "{\"n\": 56}", "result": "710998587804863451854045647463724949736497978881168458687447040000000000000"}
-2025-08-12T15:25:05.747529 - {"operation": "factorial", "input": "{\"n\": 56}", "result": "710998587804863451854045647463724949736497978881168458687447040000000000000"}
-2025-08-12T15:25:07.955937 - {"operation": "factorial", "input": "{\"n\": 56}", "result": "710998587804863451854045647463724949736497978881168458687447040000000000000"}
-2025-08-12T15:25:08.339865 - {"operation": "factorial", "input": "{\"n\": 56}", "result": "710998587804863451854045647463724949736497978881168458687447040000000000000"}
-2025-08-12T15:25:08.481931 - {"operation": "factorial", "input": "{\"n\": 56}", "result": "710998587804863451854045647463724949736497978881168458687447040000000000000"}
-2025-08-12T15:25:08.626383 - {"operation": "factorial", "input": "{\"n\": 56}", "result": "710998587804863451854045647463724949736497978881168458687447040000000000000"}
-2025-08-12T15:25:08.777317 - {"operation": "factorial", "input": "{\"n\": 56}", "result": "710998587804863451854045647463724949736497978881168458687447040000000000000"}
-2025-08-12T15:25:08.918047 - {"operation": "factorial", "input": "{\"n\": 56}", "result": "710998587804863451854045647463724949736497978881168458687447040000000000000"}
-2025-08-12T15:25:09.066013 - {"operation": "factorial", "input": "{\"n\": 56}", "result": "710998587804863451854045647463724949736497978881168458687447040000000000000"}
-2025-08-12T15:25:09.227867 - {"operation": "factorial", "input": "{\"n\": 56}", "result": "710998587804863451854045647463724949736497978881168458687447040000000000000"}
-2025-08-12T15:25:09.359665 - {"operation": "factorial", "input": "{\"n\": 56}", "result": "710998587804863451854045647463724949736497978881168458687447040000000000000"}
-2025-08-12T15:25:09.495450 - {"operation": "factorial", "input": "{\"n\": 56}", "result": "710998587804863451854045647463724949736497978881168458687447040000000000000"}
-2025-08-12T15:25:09.630706 - {"operation": "factorial", "input": "{\"n\": 56}", "result": "710998587804863451854045647463724949736497978881168458687447040000000000000"}
-2025-08-12T15:25:09.762321 - {"operation": "factorial", "input": "{\"n\": 56}", "result": "710998587804863451854045647463724949736497978881168458687447040000000000000"}
-2025-08-12T15:25:09.902181 - {"operation": "factorial", "input": "{\"n\": 56}", "result": "710998587804863451854045647463724949736497978881168458687447040000000000000"}
-2025-08-12T15:25:22.320141 - {"operation": "factorial", "input": "{\"n\": 56}", "result": "710998587804863451854045647463724949736497978881168458687447040000000000000"}
-2025-08-12T15:25:22.464733 - {"operation": "factorial", "input": "{\"n\": 56}", "result": "710998587804863451854045647463724949736497978881168458687447040000000000000"}
-2025-08-12T15:25:22.660489 - {"operation": "factorial", "input": "{\"n\": 56}", "result": "710998587804863451854045647463724949736497978881168458687447040000000000000"}
-2025-08-12T15:25:23.799241 - {"operation": "sqrt", "input": "{\"input\": 56}", "result": "7.483314773547883"}
-2025-08-12T15:25:23.806659 - {"operation": "sqrt", "input": "{\"input\": 56}", "result": "7.483314773547883"}
-2025-08-12T15:25:24.179510 - {"operation": "sqrt", "input": "{\"input\": 56}", "result": "7.483314773547883"}
-2025-08-12T15:25:24.305899 - {"operation": "sqrt", "input": "{\"input\": 56}", "result": "7.483314773547883"}
-2025-08-12T15:25:24.433556 - {"operation": "sqrt", "input": "{\"input\": 56}", "result": "7.483314773547883"}
-2025-08-12T15:25:24.551577 - {"operation": "sqrt", "input": "{\"input\": 56}", "result": "7.483314773547883"}
-2025-08-12T15:36:40.822631 - {"message": "User created successfully: Antoniu"}
-2025-08-12T15:36:58.484952 - {"operation": "sqrt", "input": "{\"input\": 1994}", "result": "44.654227123532216"}
-2025-08-12T15:36:58.500341 - {"operation": "sqrt", "input": "{\"input\": 1994}", "result": "44.654227123532216"}
-2025-08-12T15:36:59.366297 - {"operation": "sqrt", "input": "{\"input\": 1994}", "result": "44.654227123532216"}
-2025-08-12T15:36:59.523483 - {"operation": "sqrt", "input": "{\"input\": 1994}", "result": "44.654227123532216"}
-2025-08-12T15:36:59.682820 - {"operation": "sqrt", "input": "{\"input\": 1994}", "result": "44.654227123532216"}
-2025-08-12T15:36:59.828420 - {"operation": "sqrt", "input": "{\"input\": 1994}", "result": "44.654227123532216"}
-2025-08-12T15:36:59.966971 - {"operation": "sqrt", "input": "{\"input\": 1994}", "result": "44.654227123532216"}
-2025-08-12T15:37:00.273677 - {"operation": "sqrt", "input": "{\"input\": 1994}", "result": "44.654227123532216"}
-2025-08-12T15:37:00.431484 - {"operation": "sqrt", "input": "{\"input\": 1994}", "result": "44.654227123532216"}
-2025-08-12T15:37:00.561668 - {"operation": "sqrt", "input": "{\"input\": 1994}", "result": "44.654227123532216"}
-2025-08-12T15:37:00.697534 - {"operation": "sqrt", "input": "{\"input\": 1994}", "result": "44.654227123532216"}
-2025-08-12T15:37:00.880219 - {"operation": "sqrt", "input": "{\"input\": 1994}", "result": "44.654227123532216"}
-2025-08-12T15:37:01.050502 - {"operation": "sqrt", "input": "{\"input\": 1994}", "result": "44.654227123532216"}
-2025-08-12T15:37:01.222280 - {"operation": "sqrt", "input": "{\"input\": 1994}", "result": "44.654227123532216"}
-2025-08-12T15:37:01.352932 - {"operation": "sqrt", "input": "{\"input\": 1994}", "result": "44.654227123532216"}
-2025-08-12T15:37:14.456759 - {"operation": "log", "input": "{\"input\": 45, \"base\": 32}", "result": "1.0983706192659348"}
-2025-08-12T15:37:14.465269 - {"operation": "log", "input": "{\"input\": 45, \"base\": 32}", "result": "1.0983706192659348"}
-2025-08-12T15:37:14.593060 - {"operation": "log", "input": "{\"input\": 45, \"base\": 32}", "result": "1.0983706192659348"}
-2025-08-12T15:37:14.736134 - {"operation": "log", "input": "{\"input\": 45, \"base\": 32}", "result": "1.0983706192659348"}
-2025-08-12T15:37:14.880631 - {"operation": "log", "input": "{\"input\": 45, \"base\": 32}", "result": "1.0983706192659348"}
-2025-08-12T15:37:15.040703 - {"operation": "log", "input": "{\"input\": 45, \"base\": 32}", "result": "1.0983706192659348"}
-2025-08-12T15:37:15.180108 - {"operation": "log", "input": "{\"input\": 45, \"base\": 32}", "result": "1.0983706192659348"}
-2025-08-12T15:37:15.337120 - {"operation": "log", "input": "{\"input\": 45, \"base\": 32}", "result": "1.0983706192659348"}
-2025-08-12T15:37:15.481279 - {"operation": "log", "input": "{\"input\": 45, \"base\": 32}", "result": "1.0983706192659348"}
-2025-08-12T15:37:15.641666 - {"operation": "log", "input": "{\"input\": 45, \"base\": 32}", "result": "1.0983706192659348"}
-2025-08-12T15:37:16.060638 - {"operation": "pow", "input": "{\"base\": 45, \"exponent\": 32}", "result": "7.994668139825837e+52"}
-2025-08-12T15:37:16.067129 - {"operation": "pow", "input": "{\"base\": 45, \"exponent\": 32}", "result": "7.994668139825837e+52"}
-2025-08-12T15:37:16.202516 - {"operation": "pow", "input": "{\"base\": 45, \"exponent\": 32}", "result": "7.994668139825837e+52"}
-2025-08-12T15:37:16.360355 - {"operation": "pow", "input": "{\"base\": 45, \"exponent\": 32}", "result": "7.994668139825837e+52"}
-2025-08-12T15:37:16.505842 - {"operation": "pow", "input": "{\"base\": 45, \"exponent\": 32}", "result": "7.994668139825837e+52"}
-2025-08-12T15:37:16.641383 - {"operation": "pow", "input": "{\"base\": 45, \"exponent\": 32}", "result": "7.994668139825837e+52"}
-2025-08-12T15:37:16.784271 - {"operation": "pow", "input": "{\"base\": 45, \"exponent\": 32}", "result": "7.994668139825837e+52"}
-2025-08-12T15:37:16.922639 - {"operation": "pow", "input": "{\"base\": 45, \"exponent\": 32}", "result": "7.994668139825837e+52"}
-2025-08-12T15:37:17.065904 - {"operation": "pow", "input": "{\"base\": 45, \"exponent\": 32}", "result": "7.994668139825837e+52"}
-2025-08-12T15:37:17.200429 - {"operation": "pow", "input": "{\"base\": 45, \"exponent\": 32}", "result": "7.994668139825837e+52"}
-2025-08-12T15:37:22.239470 - {"operation": "pow", "input": "{\"base\": 45, \"exponent\": 12}", "result": "6.895252355493164e+19"}
-2025-08-12T15:37:22.246206 - {"operation": "pow", "input": "{\"base\": 45, \"exponent\": 12}", "result": "6.895252355493164e+19"}
-2025-08-12T15:37:22.385695 - {"operation": "pow", "input": "{\"base\": 45, \"exponent\": 12}", "result": "6.895252355493164e+19"}
-2025-08-12T15:37:22.528961 - {"operation": "pow", "input": "{\"base\": 45, \"exponent\": 12}", "result": "6.895252355493164e+19"}
-2025-08-12T15:37:22.673995 - {"operation": "pow", "input": "{\"base\": 45, \"exponent\": 12}", "result": "6.895252355493164e+19"}
-2025-08-12T15:37:47.241382 - {"message": "User created successfully: George"}
-2025-08-12T15:37:52.056430 - {"operation": "factorial", "input": "{\"n\": 23}", "result": "25852016738884976640000"}
-2025-08-12T15:37:52.064268 - {"operation": "factorial", "input": "{\"n\": 23}", "result": "25852016738884976640000"}
-2025-08-12T15:37:52.218640 - {"operation": "factorial", "input": "{\"n\": 23}", "result": "25852016738884976640000"}
-2025-08-12T15:37:52.376085 - {"operation": "factorial", "input": "{\"n\": 23}", "result": "25852016738884976640000"}
-2025-08-12T15:38:38.291561 - {"message": "User already exists: George"}
-2025-08-12T15:38:46.227083 - {"message": "Authentication failed for user: George"}
-2025-08-12T15:38:52.756725 - {"message": "User created successfully: Dragos"}
-2025-08-12T15:40:19.794819 - {"message": "User created successfully: Antoniu"}
-2025-08-12T15:40:25.278585 - {"operation": "log", "input": "{\"input\": 4, \"base\": 23}", "result": "0.4421294589150075"}
-2025-08-12T15:40:25.291731 - {"operation": "log", "input": "{\"input\": 4, \"base\": 23}", "result": "0.4421294589150075"}
-2025-08-12T15:40:25.415376 - {"operation": "log", "input": "{\"input\": 4, \"base\": 23}", "result": "0.4421294589150075"}
-2025-08-12T15:40:25.568556 - {"operation": "log", "input": "{\"input\": 4, \"base\": 23}", "result": "0.4421294589150075"}
-2025-08-12T15:40:25.704023 - {"operation": "log", "input": "{\"input\": 4, \"base\": 23}", "result": "0.4421294589150075"}
-2025-08-12T15:40:25.866266 - {"operation": "log", "input": "{\"input\": 4, \"base\": 23}", "result": "0.4421294589150075"}
-2025-08-12T15:40:26.032842 - {"operation": "log", "input": "{\"input\": 4, \"base\": 23}", "result": "0.4421294589150075"}
-2025-08-12T15:40:26.169466 - {"operation": "log", "input": "{\"input\": 4, \"base\": 23}", "result": "0.4421294589150075"}
-2025-08-12T15:40:26.330549 - {"operation": "log", "input": "{\"input\": 4, \"base\": 23}", "result": "0.4421294589150075"}
-2025-08-12T15:40:29.591875 - {"operation": "pow", "input": "{\"base\": 4, \"exponent\": 23}", "result": "70368744177664.0"}
-2025-08-12T15:40:29.598893 - {"operation": "pow", "input": "{\"base\": 4, \"exponent\": 23}", "result": "70368744177664.0"}
-2025-08-12T15:40:29.715794 - {"operation": "pow", "input": "{\"base\": 4, \"exponent\": 23}", "result": "70368744177664.0"}
-2025-08-12T15:40:29.998192 - {"operation": "pow", "input": "{\"base\": 4, \"exponent\": 23}", "result": "70368744177664.0"}
-2025-08-12T15:40:30.321990 - {"operation": "pow", "input": "{\"base\": 4, \"exponent\": 23}", "result": "70368744177664.0"}
-2025-08-12T15:40:57.158628 - {"message": "Authentication failed for user: Antoniu"}
-2025-08-12T15:41:05.108648 - {"message": "User already exists: Antoniu"}
-2025-08-12T15:41:19.709516 - {"message": "User created successfully: Alex"}
-2025-08-12T15:41:22.913923 - {"operation": "factorial", "input": "{\"n\": 4}", "result": "24"}
-2025-08-12T15:41:22.920605 - {"operation": "factorial", "input": "{\"n\": 4}", "result": "24"}
-2025-08-12T15:41:34.188396 - {"operation": "sqrt", "input": "{\"input\": 4000}", "result": "63.245553203367585"}
-2025-08-12T15:41:34.196319 - {"operation": "sqrt", "input": "{\"input\": 4000}", "result": "63.245553203367585"}
-2025-08-12T15:41:34.344341 - {"operation": "sqrt", "input": "{\"input\": 4000}", "result": "63.245553203367585"}
-2025-08-12T15:41:34.506300 - {"operation": "sqrt", "input": "{\"input\": 4000}", "result": "63.245553203367585"}
-2025-08-12T15:41:34.784994 - {"operation": "sqrt", "input": "{\"input\": 4000}", "result": "63.245553203367585"}
-2025-08-12T15:41:34.943444 - {"operation": "sqrt", "input": "{\"input\": 4000}", "result": "63.245553203367585"}
-2025-08-12T15:41:35.091749 - {"operation": "sqrt", "input": "{\"input\": 4000}", "result": "63.245553203367585"}
-2025-08-12T15:41:35.241283 - {"operation": "sqrt", "input": "{\"input\": 4000}", "result": "63.245553203367585"}
-2025-08-12T15:41:35.381005 - {"operation": "sqrt", "input": "{\"input\": 4000}", "result": "63.245553203367585"}
-2025-08-12T15:41:35.540187 - {"operation": "sqrt", "input": "{\"input\": 4000}", "result": "63.245553203367585"}
-2025-08-12T15:41:35.658165 - {"operation": "sqrt", "input": "{\"input\": 4000}", "result": "63.245553203367585"}
-2025-08-12T15:41:35.824941 - {"operation": "sqrt", "input": "{\"input\": 4000}", "result": "63.245553203367585"}
-2025-08-12T15:41:35.972033 - {"operation": "sqrt", "input": "{\"input\": 4000}", "result": "63.245553203367585"}
-2025-08-12T19:42:11.564109 - {"message": "User created successfully: Antoniu"}
-2025-08-12T19:42:25.162568 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T19:42:25.174611 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T20:27:42.233925 - {"message": "User created successfully: Antoniu"}
-2025-08-12T20:48:11.572873 - {"message": "User already exists: Antoniu"}
-2025-08-12T20:48:21.775244 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T20:48:21.791330 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T20:48:21.954037 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T20:48:22.090138 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T20:48:22.237195 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T20:48:22.370731 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T20:48:22.504273 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T20:48:22.652826 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T20:48:23.381840 - {"operation": "sqrt", "input": "{\"input\": 2}", "result": "1.4142135623730951"}
-2025-08-12T20:48:23.387922 - {"operation": "sqrt", "input": "{\"input\": 2}", "result": "1.4142135623730951"}
-2025-08-12T20:48:23.538716 - {"operation": "sqrt", "input": "{\"input\": 2}", "result": "1.4142135623730951"}
-2025-08-12T20:48:23.683269 - {"operation": "sqrt", "input": "{\"input\": 2}", "result": "1.4142135623730951"}
-2025-08-12T20:48:23.822037 - {"operation": "sqrt", "input": "{\"input\": 2}", "result": "1.4142135623730951"}
-2025-08-12T20:48:23.988710 - {"operation": "sqrt", "input": "{\"input\": 2}", "result": "1.4142135623730951"}
-2025-08-12T20:48:24.137410 - {"operation": "sqrt", "input": "{\"input\": 2}", "result": "1.4142135623730951"}
-2025-08-12T20:48:24.391082 - {"operation": "sqrt", "input": "{\"input\": 2}", "result": "1.4142135623730951"}
-2025-08-12T20:48:24.616069 - {"operation": "sqrt", "input": "{\"input\": 2}", "result": "1.4142135623730951"}
-2025-08-12T20:49:24.478711 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T20:49:24.485103 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T20:49:24.627600 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T20:49:24.797057 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T20:49:26.774562 - {"operation": "fibonacci", "input": "{\"n\": 2}", "result": "1"}
-2025-08-12T20:49:26.780381 - {"operation": "fibonacci", "input": "{\"n\": 2}", "result": "1"}
-2025-08-12T20:49:27.331251 - {"operation": "fibonacci", "input": "{\"n\": 2}", "result": "1"}
-2025-08-12T20:49:27.476621 - {"operation": "fibonacci", "input": "{\"n\": 2}", "result": "1"}
-2025-08-12T20:49:27.647074 - {"operation": "fibonacci", "input": "{\"n\": 2}", "result": "1"}
-2025-08-12T20:49:28.058312 - {"operation": "fibonacci", "input": "{\"n\": 2}", "result": "1"}
-2025-08-12T21:08:33.106751 - {"message": "User created successfully: Antoniu"}
-2025-08-12T21:08:52.289517 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T21:08:52.305827 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T21:08:52.446939 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T21:08:52.604999 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T21:08:52.726922 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T21:08:52.853997 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T21:08:52.980337 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T21:08:53.098607 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T21:08:53.223686 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T21:08:53.388855 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T21:08:53.527443 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T21:08:55.462896 - {"operation": "fibonacci", "input": "{\"n\": 23}", "result": "28657"}
-2025-08-12T21:08:55.473292 - {"operation": "fibonacci", "input": "{\"n\": 23}", "result": "28657"}
-2025-08-12T21:08:55.810781 - {"operation": "fibonacci", "input": "{\"n\": 23}", "result": "28657"}
-2025-08-12T21:08:55.961555 - {"operation": "fibonacci", "input": "{\"n\": 23}", "result": "28657"}
-2025-08-12T21:08:56.105389 - {"operation": "fibonacci", "input": "{\"n\": 23}", "result": "28657"}
-2025-08-12T21:08:56.262439 - {"operation": "fibonacci", "input": "{\"n\": 23}", "result": "28657"}
-2025-08-12T21:08:56.883299 - {"operation": "sqrt", "input": "{\"input\": 23}", "result": "4.795831523312719"}
-2025-08-12T21:08:56.889681 - {"operation": "sqrt", "input": "{\"input\": 23}", "result": "4.795831523312719"}
-2025-08-12T21:08:57.130082 - {"operation": "sqrt", "input": "{\"input\": 23}", "result": "4.795831523312719"}
-2025-08-12T21:08:57.408274 - {"operation": "sqrt", "input": "{\"input\": 23}", "result": "4.795831523312719"}
-2025-08-12T21:08:57.548396 - {"operation": "sqrt", "input": "{\"input\": 23}", "result": "4.795831523312719"}
-2025-08-12T21:08:57.682302 - {"operation": "sqrt", "input": "{\"input\": 23}", "result": "4.795831523312719"}
-2025-08-12T21:08:57.830841 - {"operation": "sqrt", "input": "{\"input\": 23}", "result": "4.795831523312719"}
-2025-08-12T21:08:57.985216 - {"operation": "sqrt", "input": "{\"input\": 23}", "result": "4.795831523312719"}
-2025-08-12T21:09:00.259050 - {"operation": "log", "input": "{\"input\": 23, \"base\": 2}", "result": "4.523561956057013"}
-2025-08-12T21:09:00.265406 - {"operation": "log", "input": "{\"input\": 23, \"base\": 2}", "result": "4.523561956057013"}
-2025-08-12T21:09:00.791973 - {"operation": "log", "input": "{\"input\": 23, \"base\": 2}", "result": "4.523561956057013"}
-2025-08-12T21:09:00.949101 - {"operation": "log", "input": "{\"input\": 23, \"base\": 2}", "result": "4.523561956057013"}
-2025-08-12T21:09:01.069951 - {"operation": "log", "input": "{\"input\": 23, \"base\": 2}", "result": "4.523561956057013"}
-2025-08-12T21:09:03.422530 - {"operation": "log", "input": "{\"input\": 23, \"base\": 3}", "result": "2.854049830200271"}
-2025-08-12T21:09:03.429351 - {"operation": "log", "input": "{\"input\": 23, \"base\": 3}", "result": "2.854049830200271"}
-2025-08-12T21:09:03.575906 - {"operation": "log", "input": "{\"input\": 23, \"base\": 3}", "result": "2.854049830200271"}
-2025-08-12T21:09:04.091082 - {"operation": "pow", "input": "{\"base\": 23, \"exponent\": 3}", "result": "12167.0"}
-2025-08-12T21:09:04.097218 - {"operation": "pow", "input": "{\"base\": 23, \"exponent\": 3}", "result": "12167.0"}
-2025-08-12T21:09:04.258715 - {"operation": "pow", "input": "{\"base\": 23, \"exponent\": 3}", "result": "12167.0"}
-2025-08-12T21:09:04.414123 - {"operation": "pow", "input": "{\"base\": 23, \"exponent\": 3}", "result": "12167.0"}
-2025-08-12T21:09:04.553029 - {"operation": "pow", "input": "{\"base\": 23, \"exponent\": 3}", "result": "12167.0"}
-2025-08-12T21:09:04.677769 - {"operation": "pow", "input": "{\"base\": 23, \"exponent\": 3}", "result": "12167.0"}
-2025-08-12T21:09:08.842831 - {"operation": "pow", "input": "{\"base\": 43, \"exponent\": 3}", "result": "79507.0"}
-2025-08-12T21:09:08.850949 - {"operation": "pow", "input": "{\"base\": 43, \"exponent\": 3}", "result": "79507.0"}
-2025-08-12T21:09:09.007763 - {"operation": "pow", "input": "{\"base\": 43, \"exponent\": 3}", "result": "79507.0"}
-2025-08-12T21:09:09.165362 - {"operation": "pow", "input": "{\"base\": 43, \"exponent\": 3}", "result": "79507.0"}
-2025-08-12T21:09:09.313195 - {"operation": "pow", "input": "{\"base\": 43, \"exponent\": 3}", "result": "79507.0"}
-2025-08-12T21:11:39.898503 - {"message": "User created successfully: Antoniu"}
-2025-08-12T21:11:42.549999 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T21:11:42.565494 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T21:11:42.667136 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T21:11:42.807617 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T21:11:42.930418 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T21:11:43.057117 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T21:11:43.191713 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T21:11:43.321959 - {"operation": "factorial", "input": "{\"n\": 2}", "result": "2"}
-2025-08-12T21:11:46.501268 - {"operation": "pow", "input": "{\"base\": 3, \"exponent\": 4}", "result": "81.0"}
-2025-08-12T21:11:46.508994 - {"operation": "pow", "input": "{\"base\": 3, \"exponent\": 4}", "result": "81.0"}
-2025-08-12T21:11:46.660688 - {"operation": "pow", "input": "{\"base\": 3, \"exponent\": 4}", "result": "81.0"}
-2025-08-12T21:11:46.940292 - {"operation": "pow", "input": "{\"base\": 3, \"exponent\": 4}", "result": "81.0"}
-2025-08-12T21:11:47.070590 - {"operation": "pow", "input": "{\"base\": 3, \"exponent\": 4}", "result": "81.0"}
+2025-08-13T14:26:10.179520 - {"method": "GET", "path": "/logout"}
+2025-08-13T14:26:23.337823 - {"message": "User created successfully: Dragos "}
+2025-08-13T14:26:23.338565 - {"method": "POST", "path": "/register", "payload": "{\"username\": \"Dragos \", \"disabled\": false}"}
+2025-08-13T14:26:23.387374 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Dragos \", \"disabled\": false}"}
+2025-08-13T14:26:23.400556 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Dragos \", \"disabled\": false}"}
+2025-08-13T14:26:39.498029 - {"method": "GET", "path": "/statistics"}
+2025-08-13T14:27:46.254481 - {"method": "GET", "path": "/logout"}
+2025-08-13T14:28:43.969221 - {"message": "Authentication failed for user: Dragos"}
+2025-08-13T14:28:51.167109 - {"message": "Authentication failed for user: Dragos"}
+2025-08-13T14:28:57.798528 - {"message": "User created successfully: Dragos"}
+2025-08-13T14:28:57.799790 - {"method": "POST", "path": "/register", "payload": "{\"username\": \"Dragos\", \"disabled\": false}"}
+2025-08-13T14:28:57.834699 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Dragos\", \"disabled\": false}"}
+2025-08-13T14:28:57.850024 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Dragos\", \"disabled\": false}"}
+2025-08-13T14:28:57.863072 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Dragos\", \"disabled\": false}"}
+2025-08-13T14:29:45.651202 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Dragos\", \"disabled\": false}"}
+2025-08-13T14:29:48.456776 - {"method": "POST", "path": "/factorial?n=12", "payload": "{\"operation\": \"factorial\", \"input\": \"{'n': 12}\", \"result\": 479001600}"}
+2025-08-13T14:30:18.695879 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Dragos\", \"disabled\": false}"}
+2025-08-13T14:30:23.795299 - {"method": "GET", "path": "/logout"}
+2025-08-13T14:30:34.095432 - {"message": "User already exists: Dragos"}
+2025-08-13T14:30:42.044676 - {"method": "POST", "path": "/login", "payload": "{\"username\": \"Dragos\", \"disabled\": false}"}
+2025-08-13T14:30:42.086244 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Dragos\", \"disabled\": false}"}
+2025-08-13T14:30:42.093900 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Dragos\", \"disabled\": false}"}
+2025-08-13T14:30:42.101336 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Dragos\", \"disabled\": false}"}
+2025-08-13T14:30:42.109301 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Dragos\", \"disabled\": false}"}
+2025-08-13T14:30:42.115548 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Dragos\", \"disabled\": false}"}
+2025-08-13T14:31:20.029576 - {"method": "GET", "path": "/logout"}
+2025-08-13T14:31:26.700936 - {"message": "User already exists: Antoniu"}
+2025-08-13T14:31:35.916221 - {"method": "POST", "path": "/login", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T14:31:35.951054 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T14:31:35.958985 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T14:31:35.965826 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T14:31:35.980230 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T14:31:35.986373 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T14:31:46.199033 - {"method": "GET", "path": "/statistics"}
+2025-08-13T14:55:54.970825 - {"method": "GET", "path": "/statistics"}
+2025-08-13T14:56:05.169767 - {"method": "GET", "path": "/statistics"}
+2025-08-13T14:56:23.885526 - {"method": "GET", "path": "/statistics"}
+2025-08-13T14:56:26.686569 - {"method": "GET", "path": "/statistics"}
+2025-08-13T14:59:40.632824 - {"message": "User already exists: Antoniu"}
+2025-08-13T14:59:45.913636 - {"method": "POST", "path": "/login", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T14:59:45.973350 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T14:59:45.983734 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T14:59:49.731585 - {"method": "POST", "path": "/fibonacci?n=100", "payload": "{\"operation\": \"fibonacci\", \"input\": \"{'n': 100}\", \"result\": 354224848179261915075}"}
+2025-08-13T15:00:00.924363 - {"method": "GET", "path": "/logout"}
+2025-08-13T15:01:52.875050 - {"method": "POST", "path": "/login", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T15:01:52.915442 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T15:01:52.928632 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T15:01:57.094870 - {"method": "POST", "path": "/fibonacci?n=1000", "payload": "{\"operation\": \"fibonacci\", \"input\": \"{'n': 1000}\", \"result\": 43466557686937456435688527675040625802564660517371780402481729089536555417949051890403879840079255169295922593080322634775209689623239873322471161642996440906533187938298969649928516003704476137795166849228875}"}
+2025-08-13T15:02:21.091327 - {"method": "POST", "path": "/fibonacci?n=1001", "payload": "{\"operation\": \"fibonacci\", \"input\": \"{'n': 1001}\", \"result\": 70330367711422815821835254877183549770181269836358732742604905087154537118196933579742249494562611733487750449241765991088186363265450223647106012053374121273867339111198139373125598767690091902245245323403501}"}
+2025-08-13T15:02:24.891283 - {"method": "GET", "path": "/logout"}
+2025-08-13T15:03:58.496130 - {"method": "POST", "path": "/login", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T15:03:58.560935 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T15:03:58.576075 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-13T15:04:01.947713 - {"method": "POST", "path": "/fibonacci?n=1000", "payload": "{\"operation\": \"fibonacci\", \"input\": \"{'n': 1000}\", \"result\": 43466557686937456435688527675040625802564660517371780402481729089536555417949051890403879840079255169295922593080322634775209689623239873322471161642996440906533187938298969649928516003704476137795166849228875}"}
+2025-08-13T15:04:16.555259 - {"method": "POST", "path": "/fibonacci?n=100", "payload": "{\"operation\": \"fibonacci\", \"input\": \"{'n': 100}\", \"result\": 354224848179261915075}"}
+2025-08-13T15:04:53.012173 - {"method": "GET", "path": "/logout"}

@@ -68,9 +68,9 @@ async def get_current_user(request: Request) -> User:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         username: str = payload.get("sub")
         if username is None:
-            raise HTTPException(status_code=401, detail="Invalid token payload")
+            return RedirectResponse(url="/logout")
     except JWTError:
-        raise HTTPException(status_code=401, detail="Invalid token")
+        return RedirectResponse(url="/logout")
     
     async with SessionLocal() as session:
         result = await session.execute(select(UserModel).where(UserModel.username == username))
@@ -98,10 +98,12 @@ async def verify_token(token: str):
             user = result.scalar_one_or_none()
             return user
 
+        print("Verify token user: ")
+        print(user)
         if user:
             return User(username=user.username, disabled=user.disabled)
         return None
     except jwt.ExpiredSignatureError:
         return RedirectResponse(url="/logout")
     except jwt.InvalidTokenError:
-        raise HTTPException(status_code=401, detail="Invalid token")
+        return RedirectResponse(url="/logout")
