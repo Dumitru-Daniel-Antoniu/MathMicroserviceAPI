@@ -14,7 +14,9 @@ from controllers.controllers import router
 from database.database import get_db
 from services.cache import init_cache
 from services.auth import verify_token, get_current_user
-from schemas.schemas import User
+from models.models import User as UserModel
+from schemas.schemas import User as UserSchema
+from database.database import get_request
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -43,12 +45,15 @@ templates = Jinja2Templates(directory="templates")
 async def statistics(request: Request):
     try:
         user = await get_current_user(request)
+        print("User connected: ")
+        print(user.username)
     except Exception as e:
         if "text/html" in request.headers.get("accept", ""):
             return RedirectResponse(url="/")
         raise e
 
     statistics = generate_latest().decode()
+    await get_request("/statistics")
     return templates.TemplateResponse(
         "statistics.html",
         {
@@ -63,7 +68,7 @@ async def root(request: Request):
     user = None
     if token:
         user = await verify_token(token)
-    if user:
+    if user and type(user) is UserModel:
         return templates.TemplateResponse("menu.html", {"request": request, "user": user})
     else:
         return templates.TemplateResponse("login.html", {"request": request})

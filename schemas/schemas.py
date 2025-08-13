@@ -39,13 +39,13 @@ class PowRequest(BaseModel):
 
 class LogRequest(BaseModel):
     """Request schema for logarithm operation."""
-    input: int = Field(..., description="Input of the logarithm")
+    n: int = Field(..., description="Input of the logarithm")
     base: int = Field(..., description="Base of the logarithm")
 
 
 class SqrtRequest(BaseModel):
     """Request schema for square root operation."""
-    input: int = Field(..., description="Input number")
+    n: int = Field(..., description="Input number")
 
 
 class FibonacciRequest(BaseModel):

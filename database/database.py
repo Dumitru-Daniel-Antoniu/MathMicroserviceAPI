@@ -1,3 +1,4 @@
+from datetime import datetime, timezone
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker
 from models.models import Base, OperationLog
@@ -16,8 +17,7 @@ async def get_db():
         await conn.run_sync(Base.metadata.create_all)
 
 
-# Function to log requests
-async def log_request(operation: str, input_data: dict, result: float):
+async def log_request(operation: str, input_data: dict, result: float, path: str):
     async with SessionLocal() as session:
         log_entry = OperationLog(
             operation=operation,
@@ -26,28 +26,35 @@ async def log_request(operation: str, input_data: dict, result: float):
         )
         session.add(log_entry)
         await session.commit()
-    
-    log_entry = {
+
+    payload = {
         "operation": operation,
-        "input": input_data,
+        "input": str(input_data),
         "result": result
     }
-    print(f"Logged to Redis Stream: {log_entry}")
+    log_entry = {
+        "method": "POST",
+        "path": path,
+        "payload": payload
+    }
     log_to_redis_stream(log_entry)
 
-# Function to create a new user
-async def log_create_user(username: str, password: str):
-    async with SessionLocal() as session:
-        new_user = {
-            "username": username,
-            "password": password
-        }
-        session.add(new_user)
-        await session.commit()
 
-    log_entry = {
+async def user_request(username: str, disabled: bool, method: str, path: str):
+    payload = {
         "username": username,
-        "password": password
+        "disabled": disabled
     }
-    print(f"User creation logged to Redis Stream: {log_entry}")
+    log_entry = {
+        "method": method,
+        "path": path,
+        "payload": payload
+    }
+    log_to_redis_stream(log_entry)
+
+async def get_request(path: str):
+    log_entry = {
+        "method": "GET",
+        "path": path
+    }
     log_to_redis_stream(log_entry)
