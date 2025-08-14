@@ -1,0 +1,38 @@
+2025-08-14T13:02:47.028155 - {"message": "Authentication failed for user: Antoniu"}
+2025-08-14T13:02:57.942631 - {"message": "User created successfully: Antoniu"}
+2025-08-14T13:02:57.943387 - {"method": "POST", "path": "/register", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-14T13:02:57.993064 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-14T13:02:58.005497 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-14T13:03:00.114491 - {"method": "POST", "path": "/factorial?n=12", "payload": "{\"operation\": \"factorial\", \"input\": \"{'n': 12}\", \"result\": 479001600}"}
+2025-08-14T13:03:01.594149 - {"method": "POST", "path": "/fibonacci?n=12", "payload": "{\"operation\": \"fibonacci\", \"input\": \"{'n': 12}\", \"result\": 144}"}
+2025-08-14T13:03:02.833845 - {"method": "POST", "path": "/sqrt?n=12", "payload": "{\"operation\": \"sqrt\", \"input\": \"{'n': 12}\", \"result\": 3.4641016151377544}"}
+2025-08-14T13:03:05.936043 - {"method": "POST", "path": "/factorial?n=41", "payload": "{\"operation\": \"factorial\", \"input\": \"{'n': 41}\", \"result\": 33452526613163807108170062053440751665152000000000}"}
+2025-08-14T13:03:06.372510 - {"method": "POST", "path": "/fibonacci?n=41", "payload": "{\"operation\": \"fibonacci\", \"input\": \"{'n': 41}\", \"result\": 165580141}"}
+2025-08-14T13:03:10.249809 - {"method": "POST", "path": "/log?n=2&base=42", "payload": "{\"operation\": \"log\", \"input\": \"{'n': 2, 'base': 42}\", \"result\": 0.1854490234153689}"}
+2025-08-14T13:03:10.789474 - {"method": "POST", "path": "/pow?base=2&exponent=42", "payload": "{\"operation\": \"pow\", \"input\": \"{'base': 2, 'exponent': 42}\", \"result\": 4398046511104.0}"}
+2025-08-14T13:03:17.682042 - {"method": "POST", "path": "/fibonacci?n=100", "payload": "{\"operation\": \"fibonacci\", \"input\": \"{'n': 100}\", \"result\": 354224848179261915075}"}
+2025-08-14T13:03:19.997757 - {"method": "POST", "path": "/fibonacci?n=1000", "payload": "{\"operation\": \"fibonacci\", \"input\": \"{'n': 1000}\", \"result\": 43466557686937456435688527675040625802564660517371780402481729089536555417949051890403879840079255169295922593080322634775209689623239873322471161642996440906533187938298969649928516003704476137795166849228875}"}
+2025-08-14T13:03:26.581858 - {"method": "POST", "path": "/log?n=100&base=101", "payload": "{\"operation\": \"log\", \"input\": \"{'n': 100, 'base': 101}\", \"result\": 0.9978439716109563}"}
+2025-08-14T13:03:33.516845 - {"method": "POST", "path": "/log?n=10000&base=10000", "payload": "{\"operation\": \"log\", \"input\": \"{'n': 10000, 'base': 10000}\", \"result\": 1.0}"}
+2025-08-14T13:03:54.840183 - {"method": "POST", "path": "/sqrt?n=99999", "payload": "{\"operation\": \"sqrt\", \"input\": \"{'n': 99999}\", \"result\": 316.226184874055}"}
+2025-08-14T13:04:03.513687 - {"method": "GET", "path": "/statistics"}
+2025-08-14T13:04:19.995492 - {"method": "GET", "path": "/logout"}
+2025-08-14T13:04:25.664306 - {"method": "POST", "path": "/login", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-14T13:04:25.701712 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-14T13:04:25.712702 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-14T13:04:25.737883 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Antoniu\", \"disabled\": false}"}
+2025-08-14T13:04:27.298718 - {"method": "GET", "path": "/logout"}
+2025-08-14T13:04:34.572340 - {"message": "User created successfully: Liviu"}
+2025-08-14T13:04:34.573265 - {"method": "POST", "path": "/register", "payload": "{\"username\": \"Liviu\", \"disabled\": false}"}
+2025-08-14T13:04:34.608851 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Liviu\", \"disabled\": false}"}
+2025-08-14T13:04:34.617360 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Liviu\", \"disabled\": false}"}
+2025-08-14T13:04:34.631969 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Liviu\", \"disabled\": false}"}
+2025-08-14T13:04:36.822125 - {"method": "POST", "path": "/factorial?n=54", "payload": "{\"operation\": \"factorial\", \"input\": \"{'n': 54}\", \"result\": 230843697339241380472092742683027581083278564571807941132288000000000000}"}
+2025-08-14T13:04:38.931650 - {"method": "GET", "path": "/logout"}
+2025-08-14T13:04:46.868130 - {"message": "User already exists: Liviu"}
+2025-08-14T13:05:00.725478 - {"method": "POST", "path": "/login", "payload": "{\"username\": \"Liviu\", \"disabled\": false}"}
+2025-08-14T13:05:00.767040 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Liviu\", \"disabled\": false}"}
+2025-08-14T13:05:00.779213 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Liviu\", \"disabled\": false}"}
+2025-08-14T13:05:00.786997 - {"method": "GET", "path": "/userinfo", "payload": "{\"username\": \"Liviu\", \"disabled\": false}"}
+2025-08-14T13:05:05.981396 - {"method": "POST", "path": "/factorial?n=43", "payload": "{\"operation\": \"factorial\", \"input\": \"{'n': 43}\", \"result\": 60415263063373835637355132068513997507264512000000000}"}
+2025-08-14T13:05:08.497081 - {"method": "GET", "path": "/logout"}
