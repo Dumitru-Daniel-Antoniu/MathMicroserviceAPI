@@ -1,3 +1,11 @@
+"""
+Redis stream consumer for logging messages to a file.
+
+Continuously reads messages from a Redis stream using a consumer group,
+writes each message to a log file with a timestamp, and acknowledges
+processed messages. Configurable via environment variables.
+"""
+
 import json
 import os
 import redis
@@ -6,6 +14,14 @@ from datetime import datetime
 
 
 def consumer():
+    """
+    Start the Redis stream consumer.
+
+    Initializes the Redis client and consumer group, reads messages from
+    the configured stream, logs them to a file with timestamps, and
+    acknowledges each message. Handles graceful shutdown on interruption.
+    """
+
     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(message)s')
 
     REDIS_STREAM = os.getenv("REDIS_STREAM", "logs")
