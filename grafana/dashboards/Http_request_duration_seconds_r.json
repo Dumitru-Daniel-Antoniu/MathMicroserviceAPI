@@ -18,13 +18,13 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 14,
+  "id": 9,
   "links": [],
   "panels": [
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "aeua2ol355se8f"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -106,14 +106,14 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aeua2ol355se8f"
+            "uid": "PBFA97CFB590B2093"
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "rate(http_request_size_bytes_sum[1m]) / (rate(http_request_size_bytes_count[1m]))",
+          "expr": "histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[1m]))",
           "fullMetaSearch": false,
           "includeNullMetadata": false,
-          "legendFormat": "{{handler}}",
+          "legendFormat": "{{method}} {{handler}}",
           "range": true,
           "refId": "A",
           "useBackend": false
@@ -130,12 +130,12 @@
     "list": []
   },
   "time": {
-    "from": "now-15m",
+    "from": "now-6h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "Http request size bytes",
-  "uid": "0d10595b-2092-4e54-b149-e6ca0df9ed71",
+  "title": "Http_request_duration_seconds_r",
+  "uid": "cb9a7b20-c184-482b-bd78-bd208ecb60d4",
   "version": 1
 }

@@ -18,13 +18,13 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 9,
+  "id": 8,
   "links": [],
   "panels": [
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "aeua2ol355se8f"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -106,7 +106,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aeua2ol355se8f"
+            "uid": "PBFA97CFB590B2093"
           },
           "disableTextWrap": false,
           "editorMode": "builder",
@@ -135,7 +135,7 @@
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "Cache missing total",
-  "uid": "02d44238-6af6-43fb-b495-f9bbbfa5dcaa",
+  "title": "Cache_misses_total_r",
+  "uid": "8e669e31-31fb-49d2-8c5a-ee65e0e55e44",
   "version": 1
 }

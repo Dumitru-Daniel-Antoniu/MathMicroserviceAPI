@@ -40,7 +40,8 @@ async def handle_cached_operation(
             log_request,
             operation,
             request.model_dump(),
-            result
+            result,
+            endpoint
         )
 
         return OperationView(
