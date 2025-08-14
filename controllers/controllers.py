@@ -1,3 +1,18 @@
+"""
+API route definitions for authentication, user info
+and mathematical operations.
+
+This module provides FastAPI endpoints for:
+- User authentication (login, register, logout)
+- Retrieving user information
+- Performing mathematical operations
+  (power, square root, logarithm, Fibonacci, factorial)
+- Testing Redis logging integration
+
+Endpoints use dependency injection for authentication and background tasks,
+and leverage caching and logging utilities for efficient operation handling.
+"""
+
 import time
 from fastapi import APIRouter, BackgroundTasks, HTTPException, Depends, status
 from fastapi.responses import RedirectResponse, JSONResponse
@@ -19,6 +34,19 @@ router = APIRouter()
              status_code=status.HTTP_200_OK,
              tags=["Authentication"])
 async def login(form_data: LoginRequest):
+    """
+    Authenticate a user and return a JWT access token.
+
+    Args:
+        form_data (LoginRequest): User login credentials.
+
+    Returns:
+        JSONResponse: Access token and token type in response.
+
+    Raises:
+        HTTPException: If credentials are invalid.
+    """
+
     user = await authenticate_user(form_data.username, form_data.password)
     if not user:
         raise HTTPException(status_code=401, detail="Invalid credentials")
@@ -41,6 +69,19 @@ async def login(form_data: LoginRequest):
              status_code=status.HTTP_201_CREATED,
              tags=["Authentication"])
 async def register(form_data: LoginRequest):
+    """
+    Register a new user and return a JWT access token.
+
+    Args:
+        form_data (LoginRequest): New user credentials.
+
+    Returns:
+        JSONResponse: Access token and token type in response.
+
+    Raises:
+        HTTPException: If user already exists.
+    """
+
     user = await create_user(form_data.username, form_data.password)
     if not user:
         raise HTTPException(status_code=400, detail="User already exists")
@@ -61,6 +102,13 @@ async def register(form_data: LoginRequest):
 
 @router.get("/logout", response_model=OperationView, tags=["Authentication"])
 async def logout():
+    """
+    Log out the current user by deleting the access token cookie.
+
+    Returns:
+        RedirectResponse: Redirects to the login/register page.
+    """
+
     await get_request("/logout")
     response = RedirectResponse(url="/")
     response.delete_cookie("access_token")
@@ -69,6 +117,16 @@ async def logout():
 
 @router.get("/userinfo", tags=["User Info"])
 async def get_user_info(user: User = Depends(get_current_user)):
+    """
+    Retrieve information about the current authenticated user.
+
+    Args:
+        user (User): The authenticated user (dependency).
+
+    Returns:
+        JSONResponse: User info including username and disabled status.
+    """
+
     await user_request(user.username, user.disabled, "GET", "/userinfo")
     return JSONResponse(
         content={
@@ -85,6 +143,21 @@ async def calculate_pow(
     background_tasks: BackgroundTasks,
     user: User = Depends(get_current_user)
 ):
+    """
+    Calculate the power of a base raised to an exponent.
+
+    Args:
+        request (PowRequest): Base and exponent values.
+        background_tasks (BackgroundTasks): FastAPI background tasks.
+        user (User): The authenticated user (dependency).
+
+    Returns:
+        OperationView: Result of the power operation.
+
+    Raises:
+        HTTPException: If calculation fails.
+    """
+
     try:
         key = f"pow:{request.base}:{request.exponent}"
         endpoint = f"/pow?base={request.base}&exponent={request.exponent}"
@@ -101,6 +174,21 @@ async def calculate_pow(
 async def calculate_sqrt(request: SqrtRequest,
                          background_tasks: BackgroundTasks,
                          user: User = Depends(get_current_user)):
+    """
+    Calculate the square root of a number.
+
+    Args:
+        request (SqrtRequest): Number to calculate the square root of.
+        background_tasks (BackgroundTasks): FastAPI background tasks.
+        user (User): The authenticated user (dependency).
+
+    Returns:
+        OperationView: Result of the square root operation.
+
+    Raises:
+        HTTPException: If calculation fails.
+    """
+
     try:
         key = f"sqrt:{request.n}"
         endpoint = f"/sqrt?n={request.n}"
@@ -117,6 +205,21 @@ async def calculate_sqrt(request: SqrtRequest,
 async def calculate_log(request: LogRequest,
                         background_tasks: BackgroundTasks,
                         user: User = Depends(get_current_user)):
+    """
+    Calculate the logarithm of a number with a given base.
+
+    Args:
+        request (LogRequest): Number and base for the logarithm.
+        background_tasks (BackgroundTasks): FastAPI background tasks.
+        user (User): The authenticated user (dependency).
+
+    Returns:
+        OperationView: Result of the logarithm operation.
+
+    Raises:
+        HTTPException: If calculation fails.
+    """
+
     try:
         key = f"log:{request.n}:{request.base}"
         endpoint = f"/log?n={request.n}&base={request.base}"
@@ -133,6 +236,21 @@ async def calculate_log(request: LogRequest,
 async def calculate_fibonacci(request: FibonacciRequest,
                               background_tasks: BackgroundTasks,
                               user: User = Depends(get_current_user)):
+    """
+    Calculate the n-th Fibonacci number.
+
+    Args:
+        request (FibonacciRequest): The position in the Fibonacci sequence.
+        background_tasks (BackgroundTasks): FastAPI background tasks.
+        user (User): The authenticated user (dependency).
+
+    Returns:
+        OperationView: Result of the Fibonacci calculation.
+
+    Raises:
+        HTTPException: If calculation fails.
+    """
+
     try:
         key = f"fibonacci:{request.n}"
         endpoint = f"/fibonacci?n={request.n}"
@@ -149,6 +267,21 @@ async def calculate_fibonacci(request: FibonacciRequest,
 async def calculate_factorial(request: FactorialRequest,
                               background_tasks: BackgroundTasks,
                               user: User = Depends(get_current_user)):
+    """
+    Calculate the factorial of a number.
+
+    Args:
+        request (FactorialRequest): Number to calculate the factorial of.
+        background_tasks (BackgroundTasks): FastAPI background tasks.
+        user (User): The authenticated user (dependency).
+
+    Returns:
+        OperationView: Result of the factorial operation.
+
+    Raises:
+        HTTPException: If calculation fails.
+    """
+
     try:
         key = f"factorial:{request.n}"
         endpoint = f"/factorial?n={request.n}"
@@ -162,6 +295,13 @@ async def calculate_factorial(request: FactorialRequest,
 
 @router.get("/test-redis")
 def test_redis():
+    """
+    Send a test log message to Redis for integration testing.
+
+    Returns:
+        dict: Status of the test message.
+    """
+
     log_to_redis_stream({"manual": "test", "source": "test-kafka route"})
-    time.sleep(1)  # Give some time for the message to be processed
+    time.sleep(1)
     return {"status": "test message sent"}

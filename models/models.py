@@ -1,3 +1,10 @@
+"""
+SQLAlchemy ORM models for user accounts and mathematical operation logs.
+
+Defines database tables for storing user credentials and operation history,
+including operation type, input, result, and timestamp.
+"""
+
 from sqlalchemy import Column, Integer, String, DateTime, Float, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime, timezone
@@ -6,7 +13,17 @@ Base = declarative_base()
 
 
 class OperationLog(Base):
-    """Model for logging mathematical operations."""
+    """
+    ORM model for logging mathematical operations.
+
+    Attributes:
+        id (int): Primary key.
+        operation (str): Name of the operation performed.
+        input (str): Input parameters as string.
+        result (float): Result of the operation.
+        timestamp (datetime): Time when the operation was logged.
+    """
+
     __tablename__ = 'operation_log'
 
     id = Column(Integer, primary_key=True, index=True)
@@ -25,7 +42,16 @@ class OperationLog(Base):
 
 
 class User(Base):
-    """Model for user authentication."""
+    """
+    ORM model for user accounts.
+
+    Attributes:
+        id (int): Primary key.
+        username (str): Unique username.
+        hashed_password (str): Hashed user password.
+        disabled (bool): User's disabled status.
+    """
+
     __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True, index=True)
