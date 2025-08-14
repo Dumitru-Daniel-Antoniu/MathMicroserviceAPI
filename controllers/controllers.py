@@ -24,7 +24,13 @@ async def login(form_data: LoginRequest):
     result = JSONResponse(
         content={"access_token": access_token, "token_type": "bearer"}
     )
-    result.set_cookie(key="access_token", value=access_token, httponly=True)
+    result.set_cookie(
+        key="access_token",
+        value=access_token,
+        httponly=True,
+        secure=True,
+        samesite='lax'
+    )
     return result
 
 @router.post("/register", response_model=LoginResponse, status_code=status.HTTP_201_CREATED, tags=["Authentication"])
@@ -37,7 +43,13 @@ async def register(form_data: LoginRequest):
     result = JSONResponse(
         content={"access_token": access_token, "token_type": "bearer"}
     )
-    result.set_cookie(key="access_token", value=access_token, httponly=True)
+    result.set_cookie(
+        key="access_token",
+        value=access_token,
+        httponly=True,
+        secure=True,
+        samesite='lax'
+    )
     return result
 
 @router.get("/logout", response_model=OperationView, tags=["Authentication"])

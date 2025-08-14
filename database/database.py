@@ -37,7 +37,11 @@ async def log_request(operation: str, input_data: dict, result: float, path: str
         "path": path,
         "payload": payload
     }
-    log_to_redis_stream(log_entry)
+    try:
+        log_to_redis_stream(log_entry)
+        print(f"Logged to Redis Stream: {log_entry}")
+    except Exception as e:
+        print(f"Error logging to Redis Stream: {e}")
 
 
 async def user_request(username: str, disabled: bool, method: str, path: str):
@@ -57,4 +61,8 @@ async def get_request(path: str):
         "method": "GET",
         "path": path
     }
-    log_to_redis_stream(log_entry)
+    try:
+        log_to_redis_stream(log_entry)
+        print(f"User creation logged to Redis Stream: {log_entry}")
+    except Exception as e:
+        print(f"Error logging to Redis Stream: {e}")

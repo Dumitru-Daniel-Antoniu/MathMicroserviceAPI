@@ -11,7 +11,9 @@ from services.logging_utils import log_to_redis_stream
 from database.database import SessionLocal
 from models.models import User as UserModel
 
-SECRET_KEY = os.getenv("SECRET_KEY", "asecretkey")
+SECRET_KEY = os.getenv("SECRET_KEY")
+if not SECRET_KEY:
+    raise RuntimeError("SECRET_KEY env var must be set")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 5
 
