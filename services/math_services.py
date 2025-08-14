@@ -1,5 +1,6 @@
 import math
 
+
 def power(base: int, exponent: int) -> float:
     """Calculate the power of a number."""
     if base > 100 or exponent > 100:
@@ -42,6 +43,7 @@ def fibonacci(n: int) -> int:
         raise ValueError("Number must be positive")
     if n > 1000:
         raise ValueError("Number must be <= 1000")
+
     def fast_fib(k: int):
         if k == 0:
             return (0, 1)

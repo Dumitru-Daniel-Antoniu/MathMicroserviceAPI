@@ -8,5 +8,6 @@ redis_client = redis.Redis(
         decode_responses=True
     )
 
+
 async def init_cache():
     FastAPICache.init(RedisBackend(redis_client), prefix="fastapi-cache")

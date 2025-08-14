@@ -1,4 +1,3 @@
-from datetime import datetime, timezone
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker
 from models.models import Base, OperationLog
@@ -17,7 +16,8 @@ async def get_db():
         await conn.run_sync(Base.metadata.create_all)
 
 
-async def log_request(operation: str, input_data: dict, result: float, path: str):
+async def log_request(operation: str, input_data: dict,
+                      result: float, path: str):
     async with SessionLocal() as session:
         log_entry = OperationLog(
             operation=operation,
@@ -55,6 +55,7 @@ async def user_request(username: str, disabled: bool, method: str, path: str):
         "payload": payload
     }
     log_to_redis_stream(log_entry)
+
 
 async def get_request(path: str):
     log_entry = {

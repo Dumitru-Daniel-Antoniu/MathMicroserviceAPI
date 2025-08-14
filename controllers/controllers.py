@@ -14,7 +14,10 @@ from services.logging_utils import log_to_redis_stream
 
 router = APIRouter()
 
-@router.post("/login", response_model=LoginResponse, status_code=status.HTTP_200_OK, tags=["Authentication"])
+
+@router.post("/login", response_model=LoginResponse,
+             status_code=status.HTTP_200_OK,
+             tags=["Authentication"])
 async def login(form_data: LoginRequest):
     user = await authenticate_user(form_data.username, form_data.password)
     if not user:
@@ -33,7 +36,10 @@ async def login(form_data: LoginRequest):
     )
     return result
 
-@router.post("/register", response_model=LoginResponse, status_code=status.HTTP_201_CREATED, tags=["Authentication"])
+
+@router.post("/register", response_model=LoginResponse,
+             status_code=status.HTTP_201_CREATED,
+             tags=["Authentication"])
 async def register(form_data: LoginRequest):
     user = await create_user(form_data.username, form_data.password)
     if not user:
@@ -52,6 +58,7 @@ async def register(form_data: LoginRequest):
     )
     return result
 
+
 @router.get("/logout", response_model=OperationView, tags=["Authentication"])
 async def logout():
     await get_request("/logout")
@@ -59,10 +66,9 @@ async def logout():
     response.delete_cookie("access_token")
     return response
 
+
 @router.get("/userinfo", tags=["User Info"])
 async def get_user_info(user: User = Depends(get_current_user)):
-    print("User info function is executed")
-    print(user)
     await user_request(user.username, user.disabled, "GET", "/userinfo")
     return JSONResponse(
         content={
@@ -71,7 +77,9 @@ async def get_user_info(user: User = Depends(get_current_user)):
         }
     )
 
-@router.post("/pow", response_model=OperationView, tags=["Mathematical Operations"])
+
+@router.post("/pow", response_model=OperationView,
+             tags=["Mathematical Operations"])
 async def calculate_pow(
     request: PowRequest,
     background_tasks: BackgroundTasks,
@@ -88,7 +96,8 @@ async def calculate_pow(
         raise HTTPException(status_code=400, detail=str(e))
 
 
-@router.post("/sqrt", response_model=OperationView, tags=["Mathematical Operations"])
+@router.post("/sqrt", response_model=OperationView,
+             tags=["Mathematical Operations"])
 async def calculate_sqrt(request: SqrtRequest,
                          background_tasks: BackgroundTasks,
                          user: User = Depends(get_current_user)):
@@ -103,7 +112,8 @@ async def calculate_sqrt(request: SqrtRequest,
         raise HTTPException(status_code=400, detail=str(e))
 
 
-@router.post("/log", response_model=OperationView, tags=["Mathematical Operations"])
+@router.post("/log", response_model=OperationView,
+             tags=["Mathematical Operations"])
 async def calculate_log(request: LogRequest,
                         background_tasks: BackgroundTasks,
                         user: User = Depends(get_current_user)):
@@ -118,7 +128,8 @@ async def calculate_log(request: LogRequest,
         raise HTTPException(status_code=400, detail=str(e))
 
 
-@router.post("/fibonacci", response_model=OperationView, tags=["Mathematical Operations"])
+@router.post("/fibonacci", response_model=OperationView,
+             tags=["Mathematical Operations"])
 async def calculate_fibonacci(request: FibonacciRequest,
                               background_tasks: BackgroundTasks,
                               user: User = Depends(get_current_user)):
@@ -133,7 +144,8 @@ async def calculate_fibonacci(request: FibonacciRequest,
         raise HTTPException(status_code=400, detail=str(e))
 
 
-@router.post("/factorial", response_model=OperationView, tags=["Mathematical Operations"])
+@router.post("/factorial", response_model=OperationView,
+             tags=["Mathematical Operations"])
 async def calculate_factorial(request: FactorialRequest,
                               background_tasks: BackgroundTasks,
                               user: User = Depends(get_current_user)):
@@ -146,6 +158,7 @@ async def calculate_factorial(request: FactorialRequest,
         )
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+
 
 @router.get("/test-redis")
 def test_redis():

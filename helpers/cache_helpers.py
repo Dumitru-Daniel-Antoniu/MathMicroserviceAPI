@@ -3,8 +3,11 @@ from services.cache import redis_client
 from database.database import log_request
 from views.views import OperationView
 
-cache_hits = Counter("cache_hits_total", "Cache hits per endpoint", ["method", "endpoint"])
-cache_misses = Counter("cache_misses_total", "Cache misses per endpoint", ["method", "endpoint"])
+cache_hits = Counter("cache_hits_total", "Cache hits per endpoint",
+                     ["method", "endpoint"])
+cache_misses = Counter("cache_misses_total", "Cache misses per endpoint",
+                       ["method", "endpoint"])
+
 
 async def handle_cached_operation(
     operation: str,

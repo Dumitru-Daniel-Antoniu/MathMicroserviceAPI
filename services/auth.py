@@ -27,45 +27,52 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)
 
+
 async def authenticate_user(username: str, password: str):
     async with SessionLocal() as session:
-        result = await session.execute(select(UserModel).where(UserModel.username == username))
+        result = await session.execute(
+            select(UserModel).where(UserModel.username == username)
+        )
         user = result.scalar_one_or_none()
-    
+
     if not user or not verify_password(password, user.hashed_password):
         log_to_redis_stream(f"Authentication failed for user: {username}")
         return None
     return user
 
+
 async def create_user(username: str, password: str):
     async with SessionLocal() as session:
-        result = await session.execute(select(UserModel).where(UserModel.username == username))
+        result = await session.execute(
+            select(UserModel).where(UserModel.username == username)
+        )
         user = result.scalar_one_or_none()
         if user:
             log_to_redis_stream(f"User already exists: {username}")
             return None
         hashed_password = pwd_context.hash(password)
-        new_user = UserModel(username=username, hashed_password=hashed_password)
+        new_user = UserModel(
+            username=username, hashed_password=hashed_password
+        )
         session.add(new_user)
         await session.commit()
         log_to_redis_stream(f"User created successfully: {username}")
         return new_user
 
+
 async def get_current_user(request: Request) -> User:
     token = None
 
-    # Try to get token from Authorization header
     auth_header = request.headers.get("Authorization")
     if auth_header and auth_header.startswith("Bearer "):
         token = auth_header.split(" ")[1]
 
-    # Fallback to cookie
     if not token:
         token = request.cookies.get("access_token")
 
     if not token:
         raise HTTPException(status_code=401, detail="Token missing")
-    
+
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         username: str = payload.get("sub")
@@ -73,20 +80,26 @@ async def get_current_user(request: Request) -> User:
             return RedirectResponse(url="/logout")
     except JWTError:
         return RedirectResponse(url="/logout")
-    
+
     async with SessionLocal() as session:
-        result = await session.execute(select(UserModel).where(UserModel.username == username))
+        result = await session.execute(
+            select(UserModel).where(UserModel.username == username)
+        )
         user = result.scalar_one_or_none()
 
     if user is None:
         raise HTTPException(status_code=401, detail="User not found")
     return User(username=user.username, disabled=user.disabled)
 
+
 def create_access_token(data: dict, expires_delta: timedelta = None):
     to_encode = data.copy()
-    expire = datetime.utcnow() + (expires_delta or timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES))
+    expire = datetime.utcnow() + (
+        expires_delta or timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    )
     to_encode.update({"exp": expire})
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+
 
 async def verify_token(token: str):
     try:
@@ -96,12 +109,12 @@ async def verify_token(token: str):
             return None
 
         async with SessionLocal() as session:
-            result = await session.execute(select(UserModel).where(UserModel.username == username))
+            result = await session.execute(
+                select(UserModel).where(UserModel.username == username)
+            )
             user = result.scalar_one_or_none()
             return user
 
-        print("Verify token user: ")
-        print(user)
         if user:
             return User(username=user.username, disabled=user.disabled)
         return None

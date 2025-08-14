@@ -1,9 +1,9 @@
-# kafka_consumer.py
 import json
 import os
 import redis
 import logging
 from datetime import datetime
+
 
 def consumer():
     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(message)s')
@@ -47,8 +47,9 @@ def consumer():
 
                 for stream, messages in response:
                     for msg_id, msg_data in messages:
-                        log_entry = f"{datetime.now().isoformat()} - {json.dumps(msg_data)}"
-                        logging.info(log_entry)
+                        current_date = datetime.now().isoformat()
+                        data = json.dumps(msg_data)
+                        log_entry = f"{current_date} - {data}"
                         f.write(log_entry + "\n")
                         f.flush()
                         redis_client.xack(
@@ -59,6 +60,7 @@ def consumer():
 
         except KeyboardInterrupt:
             logging.info("Stopping consumer...")
+
 
 if __name__ == "__main__":
     consumer()

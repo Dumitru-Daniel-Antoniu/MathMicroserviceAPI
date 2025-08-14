@@ -12,11 +12,12 @@ redis_client = redis.Redis(
     decode_responses=True
 )
 
+
 def log_to_redis_stream(message: dict):
     try:
         if not isinstance(message, dict):
             message = {"message": str(message)}
-        
+
         message_clean = {
             k: json.dumps(v) if isinstance(v, (dict, list)) else str(v)
             for k, v in message.items()
@@ -24,4 +25,3 @@ def log_to_redis_stream(message: dict):
         redis_client.xadd(REDIS_STREAM, message_clean)
     except Exception as e:
         print(f"Error logging to Redis stream: {e}")
-

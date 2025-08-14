@@ -1,28 +1,24 @@
-from http.client import HTTPException
-
-from fastapi import FastAPI, Request, Depends
+from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from prometheus_fastapi_instrumentator import Instrumentator
 from prometheus_client import generate_latest
 from contextlib import asynccontextmanager
-
-from redis.asyncio import Redis
 from starlette.responses import RedirectResponse
-
 from controllers.controllers import router
 from database.database import get_db
 from services.cache import init_cache
 from services.auth import verify_token, get_current_user
 from models.models import User as UserModel
-from schemas.schemas import User as UserSchema
 from database.database import get_request
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     await get_db()
     await init_cache()
     yield
+
 
 def create_app() -> FastAPI:
     app = FastAPI(
@@ -31,9 +27,12 @@ def create_app() -> FastAPI:
 
     return app
 
+
 app = create_app()
 
+
 app.include_router(router)
+
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
@@ -62,6 +61,7 @@ async def statistics(request: Request):
         }
     )
 
+
 @app.get("/", tags=["Application"])
 async def root(request: Request):
     token = request.cookies.get("access_token")
@@ -69,8 +69,10 @@ async def root(request: Request):
     if token:
         user = await verify_token(token)
     if user and type(user) is UserModel:
-        return templates.TemplateResponse("menu.html", {"request": request, "user": user})
+        return templates.TemplateResponse("menu.html",
+                                          {"request": request, "user": user})
     else:
         return templates.TemplateResponse("login.html", {"request": request})
+
 
 Instrumentator().instrument(app).expose(app)
