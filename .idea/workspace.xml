@@ -13,6 +13,7 @@
       <change beforePath="$PROJECT_DIR$/info.db" beforeDir="false" afterPath="$PROJECT_DIR$/info.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schemas/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/schemas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/cache.py" afterDir="false" />
@@ -61,7 +62,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "docstrings",
     "last_opened_file_path": "C:/Users/dandumitru/OneDrive - ENDAVA/Desktop/PythonTrainings/PythonHomework",
     "settings.editor.selected.configurable": "preferences.sourceCode.HTML"
   }
